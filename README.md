@@ -18,15 +18,15 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 准备工作
 
-在正确安装 Conflux Studio 并初次启动时，你将看到一个 `Welcome Page` 欢迎页面，这里有 Conflux Studio 正常运行所需要的依赖，包括了 Docker，[Conflux Node](https://hub.docker.com/r/confluxchain/conflux-rust) 以及 [Conflux Truffle](https://github.com/Conflux-Chain/conflux-truffle)
+在正确安装 Conflux Studio 并初次启动时，你将看到一个欢迎页面，这里有 Conflux Studio 正常运行所需要的依赖，包括了 Docker，Conflux Node 以及 Conflux Truffle
 
 <p align="center">
   <img src="./screenshots/welcome.png" width="720px">
 </p>
 
-- Conflux Studio 使用 Docker 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
-- Conflux Node 是 Conflux 官方提供的 Docker 镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
-- Conflux Truffle 是 Conflux 的开发工具包，Conflux Studio 使用这个工具包进行项目的创建和编译。
+- **Conflux Studio** 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
+- [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Docker 镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
+- [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 的开发工具包，Conflux Studio 使用这个工具包进行项目的创建和编译。
 
 当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 Conflux 的主界面。
 
