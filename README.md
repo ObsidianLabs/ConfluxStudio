@@ -1,6 +1,6 @@
 # Conflux Studio
 
-Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 网络的集成化开发环境。
+Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 智能合约的集成化开发环境。
 
 ![](./screenshots/compile.png)
 
@@ -12,7 +12,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 安装
 
-双击打开 `ConfluxStudio-0.1.1.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
+双击打开 `ConfluxStudio-0.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
 
 ## 功能预览
 
@@ -26,13 +26,13 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 - Conflux Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
 - [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Docker 镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
-- [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 的开发工具包，Conflux Studio 使用这个工具包进行项目的创建和编译。
+- [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 版本的 Truffle。Conflux Studio 使用这个工具包进行项目的创建和编译。
 
-当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 Conflux 的主界面。
+当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 Conflux Studio 的主界面。
 
 ### 创建密钥对
 
-进入主界面后，我们首先创建一些密钥对。在 Conflux Studio 的任意界面，你都可以通过点击左下角的钥匙按钮来打开密钥管理器。
+进入主界面后，我们需要首先创建一些密钥对。在 Conflux Studio 的任意界面，你都可以通过点击左下角的钥匙按钮来打开密钥管理器。
 
 <p align="center">
   <img src="./screenshots/keypairs.png" width="480px">
@@ -72,7 +72,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 点解顶部的 *Project* 标签，主页面将切换至项目管理器。
 
-点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 提供了 `coin` 和 `[Truffle] metacoin` 两种模版。点击 *Create Project* 按钮创建项目。
+点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 提供了 `coin` 和 `[Truffle] metacoin` 两个模版。点击 *Create Project* 按钮创建项目。
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
@@ -82,7 +82,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 编译智能合约项目
 
-点击工具栏的编译按钮（锤子形状），Conflux Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下的 *build* 文件夹中生成 json 文件。
+点击工具栏的编译按钮（锤子形状），Conflux Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下的 `build` 文件夹中生成 json 文件。
 
 <p align="center">
   <img src="./screenshots/compile.png" width="720px">
