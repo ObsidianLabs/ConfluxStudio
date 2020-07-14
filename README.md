@@ -24,7 +24,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
   <img src="./screenshots/welcome.png" width="720px">
 </p>
 
-- **Conflux Studio** 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
+- Conflux Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
 - [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Docker 镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
 - [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 的开发工具包，Conflux Studio 使用这个工具包进行项目的创建和编译。
 
