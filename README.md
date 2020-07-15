@@ -25,22 +25,22 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 </p>
 
 - Conflux Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
-- [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Docker 镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
+- [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Conflux 节点镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
 - [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 版本的 Truffle。Conflux Studio 使用这个工具包进行项目的创建和编译。
 
 当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 Conflux Studio 的主界面。
 
 ### 创建密钥对
 
-进入主界面后，我们需要首先创建一些密钥对。在 Conflux Studio 的任意界面，你都可以通过点击左下角的钥匙按钮来打开密钥管理器。
+进入主界面后，我们需要首先创建一些密钥对。在 Conflux Studio 的任意界面，点击应用左下⻆的钥匙图标，打开密钥管理器。
 
 <p align="center">
   <img src="./screenshots/keypairs.png" width="480px">
 </p>
 
-你可以在密钥管理器中创建、导入和删除密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建实例时，创世区块获取密钥管理器中的所有公钥并将这些密钥作为创世地址。
+你可以在密钥管理器中创建、导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建新的Conflux节点实例时，会使用密钥管理器里所有的地址作为创世地址，每个地址得到10000 CFX的初始token。
 
-我们在密钥管理器中创建两个新的密钥对，这两个密钥对将作为后文中节点的创世地址。
+**再继续之前，请先在密钥管理器中创建一些密钥对，作为接下来创建节点实例的创世地址。**
 
 ### 启动节点
 
@@ -60,7 +60,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 区块浏览器
 
-节点启动后，点击顶部的 *Explorer* 标签，主页面将切换为区块浏览器。在区块浏览器中，我们可以查询对应地址的余额。
+节点启动后，点击顶部的 *Explorer* 标签，主页面将切换为区块浏览器。在区块浏览器中，我们可以查询对应地址的信息。由于该模块仍在开发中，目前区块浏览器仅支持查看余额。
 
 从密钥管理器中复制刚刚生成的地址，将地址粘贴在地址栏并点击回车，我们便可以看到对应地址的余额信息了。
 
@@ -70,9 +70,10 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 创建智能合约项目
 
-点解顶部的 *Project* 标签，主页面将切换至项目管理器。
+点解顶部的 *Project* 标签，主页面将切换至项目管理器。点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 目前提供了两个模版：
 
-点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 提供了 `coin` 和 `[Truffle] metacoin` 两个模版。点击 *Create Project* 按钮创建项目。
+- `coin`：Conflux实例提供的coin智能合约
+- `[Truffle] metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
@@ -96,13 +97,16 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
   <img src="./screenshots/deploy.png" width="720px">
 </p>
 
-### 合约浏览器
+### 调用合约
 
 成功部署智能合约后，点击弹窗中点击蓝色的 *contract* 按钮，主页面将切换至合约浏览器，Conflux Studio 将自动打开刚才部署完成的智能合约。
 
 合约浏览器页面主要分为两个部分：
- - 左边为合约的调用方法，点击左半部分的左上角蓝色按钮弹出的下拉框显示当前合约所定义的方法，点击方法名称可以切换调用的方法。
- - 右边为合约的数据读取，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
+
+- 左边为合约的调用方法，点击左半部分的左上角蓝色按钮弹出的下拉框显示当前合约所定义的方法，点击方法名称可以切换调用的方法。
+- 右边为合约的数据读取，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
+
+Conflux Studio 会自动读取合约ABI中的functions，并为每个function生成参数表单。用户可以简单的选择要调用的 function，输入参数，选择签名者（需要为keypair manager中存在的地址；读操作不需选择），并点击运行按钮进行合约调用。调用结果（成功或失败）将显示在下方的result栏中。
 
 <p align="center">
   <img src="./screenshots/contract.png" width="720px">
