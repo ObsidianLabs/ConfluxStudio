@@ -38,7 +38,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
   <img src="./screenshots/keypairs.png" width="480px">
 </p>
 
-你可以在密钥管理器中创建、导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建新的Conflux节点实例时，会使用密钥管理器里所有的地址作为创世地址，每个地址得到10000 CFX的初始token。
+你可以在密钥管理器中创建、导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建新的 Conflux 节点实例时，会使用密钥管理器里所有的地址作为创世地址，每个地址得到 10000 CFX 的初始 token。
 
 **再继续之前，请先在密钥管理器中创建一些密钥对，作为接下来创建节点实例的创世地址。**
 
@@ -106,7 +106,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 - 左边为合约的调用方法，点击左半部分的左上角蓝色按钮弹出的下拉框显示当前合约所定义的方法，点击方法名称可以切换调用的方法。
 - 右边为合约的数据读取，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
 
-Conflux Studio 会自动读取合约ABI中的functions，并为每个function生成参数表单。用户可以简单的选择要调用的 function，输入参数，选择签名者（需要为keypair manager中存在的地址；读操作不需选择），并点击运行按钮进行合约调用。调用结果（成功或失败）将显示在下方的result栏中。
+Conflux Studio 会自动读取合约 ABI 中的 functions，并为每个 function 生成参数表单。用户可以简单的选择要调用的 function，输入参数，选择签名者（需要为 keypair manager 中存在的地址；读操作不需选择），并点击运行按钮进行合约调用。调用结果（成功或失败）将显示在下方的 result 栏中。
 
 <p align="center">
   <img src="./screenshots/contract.png" width="720px">
