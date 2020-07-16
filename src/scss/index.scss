@@ -133,6 +133,7 @@ $link-hover-color: $link-color;
 
 @import "button";
 @import "hljs";
+@import "fixed-table";
 
 @each $color, $value in $theme-colors {
   .alert-#{$color} {
