@@ -1,6 +1,7 @@
 export default function ({ persistor, store, actions }) {
   // Data initialization
   store.dispatch(actions.CREATE_TABS())
+  store.dispatch(actions.ADD_DEFAULT_ABIS())
 
   // Important Note:
   // data structure upgrade must be called before data version upgrade
