@@ -8,11 +8,16 @@ Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnet
 
 ### 下载
 
-Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。
+Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 支持 macOS 和 Linux 系统，请根据系统下载对应的版本 (macOS 下载 .dmg 或者 .zip，Linux 下载 .AppImage)。
 
 ### 安装
 
-双击打开 `ConfluxStudio-0.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
+- **macOS**: 双击打开 `ConfluxStudio-x.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
+- **Linux**: 双击打开 `ConfluxStudio-x.x.x.AppImage`, 选择 *Properties* => *Permissions* => *Execute*, 将 *Allow executing file as progrom* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
+
+## 教程
+
+你可以前往 [Conflux DApp 开发教程](https://github.com/ObsidianLabs/conflux-dapp-tutorial)学习如何使用 Conflux Studio 完整地开发一款代币 DApp。
 
 ## 功能预览
 
