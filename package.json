@@ -7,6 +7,7 @@
     "email": "phil.li@obsidians.io",
     "url": "https://obsidians.io"
   },
+  "license": "GPL-3.0",
   "private": true,
   "homepage": "./",
   "main": "build/main/index.js",
