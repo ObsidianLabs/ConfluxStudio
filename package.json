@@ -7,6 +7,7 @@
     "email": "phil.li@obsidians.io",
     "url": "https://obsidians.io"
   },
+  "license": "GPL-3.0",
   "private": true,
   "homepage": "./",
   "main": "build/main/index.js",
@@ -33,7 +34,7 @@
   "dependencies": {
     "crypto-browserify": "^3.12.0",
     "fs-extra": "^8.1.0",
-    "js-conflux-sdk": "git+https://git@github.com/qftgtr/js-conflux-sdk.git",
+    "js-conflux-sdk": "git+https://git@github.com/qftgtr/js-conflux-sdk.git#add-get-account",
     "keytar": "5.6.0",
     "monaco-ace-tokenizer": "^0.2.0",
     "node-pty": "0.9.0",
