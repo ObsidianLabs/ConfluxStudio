@@ -1,0 +1,104 @@
+name: Build
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  bump:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF##*[\/v]}
+        shell: bash
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Bump version
+        working-directory: .
+        run: |
+          yarn config set version-git-tag false
+          yarn version --new-version ${{ steps.get_version.outputs.VERSION }}
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git diff-index --quiet HEAD || git commit -am 'v${{ steps.get_version.outputs.VERSION }}'
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+
+  release:
+    needs: bump
+
+    # Platforms to build on/for
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-18.04, windows-2019]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Checkout electron-components
+        uses: actions/checkout@v2
+        with:
+          repository: ObsidianLabs/electron-components
+          ref: master
+          path: ./electron-components
+
+      - name: Build electron-components
+        working-directory: ./electron-components
+        run: yarn && yarn build
+
+      - name: Checkout conflux-components
+        uses: actions/checkout@v2
+        with:
+          repository: ObsidianLabs/conflux-components
+          ref: master
+          path: ./conflux-components
+
+      - name: Build conflux-components
+        working-directory: ./conflux-components
+        run: yarn && yarn build
+
+      - name: Checkout Studio
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          path: ./studio
+
+      - name: Build studio
+        uses: ObsidianLabs/studio-build-action@master
+        with:
+          build: conflux
+          project_name: Conflux Studio
+          build_script: yarn && yarn dist
+          working-directory: ./studio
+          fontawesome_token: ${{ secrets.fontawesome_token }}
+          mac_certs: ${{ secrets.certs }}
+          mac_certs_password: ${{ secrets.certs_password }}
+          windows_certs: ${{ secrets.certs }}
+          windows_certs_password: ${{ secrets.certs_password }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload assets
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'studio/dist/*.(dmg|zip|exe|AppImage|yml)'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
