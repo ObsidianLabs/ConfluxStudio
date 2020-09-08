@@ -58,10 +58,6 @@ module.exports = merge.smart(baseConfig, {
         to: 'templates'
       },
       {
-        from: 'node_modules/@obsidians/conflux-instances/main/chain-configs',
-        to: 'chain-configs'
-      },
-      {
         from: 'assets/icon.png',
         to: 'icon.png'
       }
