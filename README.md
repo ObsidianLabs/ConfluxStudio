@@ -4,6 +4,8 @@ Conflux Studio is an integrated development environment (IDE), making developing
 
 ![](./screenshots/compile.png)
 
+English | [简体中文](https://github.com/ObsidianLabs/ConfluxStudio/blob/master/README-CN.md)
+
 ## Install
 
 ### Download
