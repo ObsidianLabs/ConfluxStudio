@@ -99,7 +99,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 部署智能合约项目
 
-点击工具栏的部署按钮（船形状），部署参数窗口将被打开，在这里可以定义构造器参数，signer，gas limit 和 gas price。
+点击工具栏的部署按钮（船形状），部署参数窗口将被打开，在这里可以输入构造函数的参数、交易签名者、gas limit 和 gas price。
 
 <p align="center">
   <img src="./screenshots/deploy_parameters.png" width="720px">

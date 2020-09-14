@@ -100,7 +100,7 @@ Click the compile button (hammer-shaped) on the toolbar, Conflux Studio will com
 
 ### Deploy Smart Contract Project
 
-Click the deploy button (boat-shaped) on the toolbar, a parameters window will be shown and you can select signer, constructor parameters, gas limit and gas price for the deployment.
+Click the deploy button (boat-shaped) on the toolbar to open the *Deploy* modal. You can enter constructor parameters, signer, gas limit and gas price for the deployment.
 
 <p align="center">
   <img src="./screenshots/deploy_parameters.png" width="720px">
