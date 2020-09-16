@@ -16,7 +16,7 @@ Download Conflux Studio install-package in [Github Release](https://github.com/O
 
 - **macOS**: Double click to open `ConfluxStudio-x.x.x.dmg` and drag `Conflux Studio` to the application folder.
 - **Linux**: Double-click to open `ConfluxStudio-x.x.x.AppImage`, select *Properties* => *Permissions* => *Execute*, and tick the *Allow executing file as progrom* option. Close the properties window and double-click to open the application (different Linux distributions may have different installation methods).
-- **Windows**: Double click to run the ConfluxStudio-x.x.x.exe.
+- **Windows**: Double click to run the `ConfluxStudio-x.x.x.exe`.
 
 ## Tutorial
 
