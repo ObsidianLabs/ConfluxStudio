@@ -1,6 +1,6 @@
 const { IpcChannel } = require('@obsidians/ipc')
 const KeypairManager = require('@obsidians/keypair')
-const { AutoUpdate } = require('@obsidians/conflux-welcome')
+const { AutoUpdate } = require('@obsidians/global')
 const CompilerManager = require('@obsidians/conflux-compiler')
 const { InstanceManager } = require('@obsidians/conflux-instances')
 const ProjectChannel = require('@obsidians/conflux-project')

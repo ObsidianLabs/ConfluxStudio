@@ -2,7 +2,8 @@ import React, { Component, Suspense, lazy } from 'react'
 
 import fileOps from '@obsidians/file-ops'
 import { NotificationSystem } from '@obsidians/notification'
-import Welcome, { checkDependencies, GlobalModals, autoUpdater } from '@obsidians/welcome'
+import Welcome, { checkDependencies } from '@obsidians/welcome'
+import { GlobalModals, autoUpdater } from '@obsidians/global'
 import { LoadingScreen } from '@obsidians/ui-components'
 import redux, { Provider } from '@obsidians/redux'
 

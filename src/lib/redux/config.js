@@ -116,7 +116,7 @@ export const accounts = {
 }
 
 export const network = {
-  default: 'dev',
+  default: '',
   persist: false,
   actions: {
     SELECT_NETWORK: {

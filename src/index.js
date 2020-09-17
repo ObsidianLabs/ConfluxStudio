@@ -8,9 +8,11 @@ import './scss/index.scss'
 import * as serviceWorker from './serviceWorker'
 import App from './App'
 
-fileOps.fsType = 'electron'
-
-window.fileOps = fileOps
+if (window.require) {
+  fileOps.fsType = 'electron'
+} else {
+  fileOps.fsType = 'web'
+}
 
 import('./scss/fonts/open_sans.css')
 import('./scss/fonts/hack.css')
