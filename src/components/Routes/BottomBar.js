@@ -4,10 +4,9 @@ import redux, { connect } from '@obsidians/redux'
 import BottomBar from '@obsidians/bottombar'
 
 function BottomBarWithProps (props) {
-  const selected = props.projects.get('selected')
-
   return (
     <BottomBar
+      txs={props.queue.getIn([props.network, 'txs'])}
       nodeVersion={props.globalConfig.get('nodeVersion')}
       compilerVersion={props.globalConfig.get('compilerVersion')}
       onSelectNodeVersion={nodeVersion => redux.dispatch('UPDATE_GLOBAL_CONFIG', { nodeVersion })}
@@ -16,4 +15,4 @@ function BottomBarWithProps (props) {
   )
 }
 
-export default connect(['projects', 'globalConfig'])(BottomBarWithProps)
+export default connect(['projects', 'globalConfig', 'queue', 'network'])(BottomBarWithProps)
