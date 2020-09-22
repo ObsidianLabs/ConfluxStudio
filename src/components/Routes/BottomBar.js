@@ -7,9 +7,9 @@ function BottomBarWithProps (props) {
   return (
     <BottomBar
       txs={props.queue.getIn([props.network, 'txs'])}
-      nodeVersion={props.globalConfig.get('nodeVersion')}
+      solc={props.globalConfig.get('solc')}
+      onSelectSolc={solc => redux.dispatch('UPDATE_GLOBAL_CONFIG', { solc })}
       compilerVersion={props.globalConfig.get('compilerVersion')}
-      onSelectNodeVersion={nodeVersion => redux.dispatch('UPDATE_GLOBAL_CONFIG', { nodeVersion })}
       onSelectCompiler={compilerVersion => redux.dispatch('UPDATE_GLOBAL_CONFIG', { compilerVersion })}
     />
   )

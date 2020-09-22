@@ -54,7 +54,6 @@ class HeaderWithRedux extends PureComponent {
         starred={starred}
         network={selectedNetwork}
         networkList={networkList}
-        compilerVersion={this.props.globalConfig.get('compilerVersion')}
       />
     )
   }
@@ -65,5 +64,4 @@ export default connect([
   'contracts',
   'accounts',
   'network',
-  'globalConfig'
 ])(HeaderWithRedux)

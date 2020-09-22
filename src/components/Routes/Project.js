@@ -51,7 +51,7 @@ class ProjectWithProps extends PureComponent {
       <Project
         theme='obsidians'
         projectRoot={selected.path}
-        nodeVersion={globalConfig.get('nodeVersion')}
+        solc={globalConfig.get('solc')}
         compilerVersion={globalConfig.get('compilerVersion')}
         InvalidProjectActions={this.renderInvalidProjectActions(selected)}
       />
