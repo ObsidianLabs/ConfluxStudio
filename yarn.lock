@@ -8679,7 +8679,7 @@ js-base64@^2.1.8:
 
 "js-conflux-sdk@git+https://git@github.com/qftgtr/js-conflux-sdk.git#add-get-account":
   version "0.13.4"
-  resolved "git+https://git@github.com/qftgtr/js-conflux-sdk.git#8ef7fc79c13242a5d5133df24629b534bbf9cd7a"
+  resolved "git+https://git@github.com/qftgtr/js-conflux-sdk.git#e4af6b43d95a7066d873b58c1c910b1407879d94"
   dependencies:
     "@babel/runtime" "^7.8.4"
     big.js "^5.2.2"
@@ -13193,7 +13193,7 @@ semver@7.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
   integrity sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==
 
-semver@^7.1.3, semver@^7.3.2:
+semver@^7.3.2:
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
   integrity sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==
