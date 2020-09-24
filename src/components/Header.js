@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
 
 import redux, { connect } from '@obsidians/redux'
-import headerActions, { networks, Header, NavGuard } from '@obsidians/header'
+
+import headerActions, { Header, NavGuard } from '@obsidians/header'
+import { networks } from '@obsidians/network'
 import { actions } from '@obsidians/project'
 
 class HeaderWithRedux extends PureComponent {

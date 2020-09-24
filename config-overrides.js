@@ -47,7 +47,7 @@ const overrides = [
     '@obsidians/bottombar': `@obsidians/${process.env.BUILD}-bottombar`,
     '@obsidians/explorer': `@obsidians/${process.env.BUILD}-explorer`,
     '@obsidians/header': `@obsidians/${process.env.BUILD}-header`,
-    '@obsidians/instances': `@obsidians/${process.env.BUILD}-instances`,
+    '@obsidians/network': `@obsidians/${process.env.BUILD}-network`,
     '@obsidians/project': `@obsidians/${process.env.BUILD}-project`,
     '@obsidians/sdk': `@obsidians/${process.env.BUILD}-sdk`,
     '@obsidians/welcome': `@obsidians/${process.env.BUILD}-welcome`,
