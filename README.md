@@ -12,6 +12,8 @@ English | [简体中文](https://github.com/ObsidianLabs/ConfluxStudio/blob/mast
 
 Download Conflux Studio install-package in [Github Release](https://github.com/ObsidianLabs/ConfluxStudio/releases) according to the computer system type (.dmg/.zip for macOS, .AppImage for Linux, .exe for Windows).
 
+You can also download the latest the installation packages through the links ([Mac](https://download.obsidians.io/conflux/mac), [Windows](https://download.obsidians.io/conflux/win), [Linux](https://download.obsidians.io/conflux/linux)).
+
 ### Install
 
 - **macOS**: Double click to open `ConfluxStudio-x.x.x.dmg` and drag `Conflux Studio` to the application folder.
