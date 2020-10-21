@@ -66,8 +66,9 @@ module.exports = merge.smart(baseConfig, {
       reportFiles: ['src.main/**/*']
     }),
     new webpack.DefinePlugin({
-      'process.env.BUILD': JSON.stringify(process.env.BUILD),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env.BUILD': JSON.stringify(process.env.BUILD),
+      'process.env.PROJECT': JSON.stringify(process.env.PROJECT || process.env.BUILD),
     })
   ]
 })

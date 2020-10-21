@@ -4,7 +4,6 @@ const isDev = require('electron-is-dev')
 const shellPath = require('shell-path')
 
 const { ipc } = require('@obsidians/ipc')
-const { FileTreeChannel } = require('@obsidians/filetree')
 const { TerminalChannelManager } = require('@obsidians/terminal')
 
 const init = require('./init')
@@ -12,7 +11,7 @@ const createMenu = require('./createMenu')
 const oldIpc = require('./ipc')
 
 let win
-let filetreeChannel, terminalChannelManager
+let terminalChannelManager
 app.on('ready', async () => {
   if (process.platform !== 'win32') {
     process.env.PATH = shellPath.sync() || [
@@ -23,7 +22,6 @@ app.on('ready', async () => {
     ].join(':')
   }
 
-  filetreeChannel = new FileTreeChannel()
   terminalChannelManager = new TerminalChannelManager()
   init()
   ipc.window = createWindow()
