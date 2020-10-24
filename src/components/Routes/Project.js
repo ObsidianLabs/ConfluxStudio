@@ -51,6 +51,7 @@ class ProjectWithProps extends PureComponent {
       <Project
         theme='obsidians'
         projectRoot={selected.path}
+        type='Local'
         InvalidProjectActions={this.renderInvalidProjectActions(selected)}
       />
     )
