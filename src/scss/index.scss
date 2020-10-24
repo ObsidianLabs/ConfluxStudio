@@ -201,12 +201,6 @@ code {
 p, th, td, .alert {
   user-select: text;
 }
-.user-select {
-  user-select: text;
-}
-.user-select-none {
-  user-select: none;
-}
 .cursor-pointer {
   cursor: pointer !important;
 }
@@ -287,16 +281,6 @@ textarea {
       border: 4px solid $input-focus-bg !important;
     }
   }
-}
-
-.nowrap {
-  white-space: nowrap;
-}
-.pre-wrap {
-  white-space: pre-wrap;
-}
-.break-all {
-  word-break: break-all;
 }
 
 .dropdown-menu {
