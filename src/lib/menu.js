@@ -1,9 +1,10 @@
 import get from 'lodash/get'
 
+import platform from '@obsidians/platform'
 import { globalModalManager } from '@obsidians/global'
 
 const handlers = {}
-if (window.require) {
+if (platform.isDesktop) {
   const { ipcRenderer } = window.require('electron')
 
   handlers.about = () => globalModalManager.openAboutModal()

@@ -1,17 +1,17 @@
 import React, { PureComponent } from 'react'
 
-import redux, { connect } from '@obsidians/redux'
+import { connect } from '@obsidians/redux'
 
 import headerActions, { Header, NavGuard } from '@obsidians/header'
-import { networks } from '@obsidians/network'
+import { networkManager, networks } from '@obsidians/network'
 import { actions } from '@obsidians/project'
 
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
     actions.history = this.props.history
     headerActions.history = this.props.history
-    if (!this.props.network) {
-      redux.dispatch('SELECT_NETWORK', networks.getIn([0, 'id']))
+    if (!networkManager.network) {
+      networkManager.setNetwork(networks.getIn([0, 'id']))
     }
     this.navGuard = new NavGuard(this.props.history)
   }
