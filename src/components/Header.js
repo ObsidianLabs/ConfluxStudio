@@ -4,7 +4,7 @@ import { connect } from '@obsidians/redux'
 
 import headerActions, { Header, NavGuard } from '@obsidians/header'
 import { networkManager, networks } from '@obsidians/network'
-import { actions } from '@obsidians/project'
+import { actions } from '@obsidians/workspace'
 
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
