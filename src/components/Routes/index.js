@@ -30,7 +30,7 @@ export default function (props) {
           <Route
             exact
             path='/'
-            render={() => <Redirect to='/guest' />}
+            render={() => <Redirect to='/local' />}
           />
           <CacheRoute
             exact
