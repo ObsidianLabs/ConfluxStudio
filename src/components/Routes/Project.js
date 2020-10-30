@@ -29,17 +29,6 @@ class ProjectWithProps extends PureComponent {
     })
   }
 
-  renderInvalidProjectActions = project => {
-    return (
-      <React.Fragment>
-        <Button
-          color='secondary'
-          onClick={() => actions.removeProject(project)}
-        >Remove</Button>
-      </React.Fragment>
-    )
-  }
-
   render () {
     const { projects, match } = this.props
     const { username, project } = match.params
