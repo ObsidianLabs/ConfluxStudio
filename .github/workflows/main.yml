@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:      
-      - name: Generate component matrix
+      - name: Generate os matrix
         id: set-os-matrix
         run: echo ::set-output name=os::${{ env.os_matrix }}
 
@@ -84,45 +84,9 @@ jobs:
           git push origin master:master
           git push origin develop:develop
 
-  # Tag components
-  tag-component:
-    needs: [ generate-matrix, versions ]
-
-    runs-on: ubuntu-18.04
-    
-    strategy:
-      matrix:
-        component: ${{ fromJson(needs.generate-matrix.outputs.component) }}
-
-    steps:
-      - name: Checkout ${{ matrix.component }}
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.owner }}/${{ matrix.component }}
-          ref: master
-          token: ${{ secrets.obsidians_token }}
-
-      - name: Get ${{ matrix.component }} latest SHA
-        id: sha
-        shell: bash
-        run: echo ::set-output name=SHA::$(git rev-parse HEAD)
-
-      - name: Create ${{ matrix.component }} tag
-        if: ${{ needs.versions.outputs.new_release == 'true' }}
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{ secrets.obsidians_token }}
-          script: |
-            github.git.createRef({
-              owner: "${{ env.owner }}",
-              repo: "${{ matrix.component }}",
-              ref: "refs/tags/${{ needs.versions.outputs.component_version }}",
-              sha: "${{ steps.sha.outputs.SHA }}"
-            })
-
   # Build and release
   release:
-    needs: [ generate-matrix, versions, bump, tag-component ]
+    needs: [ generate-matrix, versions, bump ]
 
     strategy:
       matrix:
@@ -136,17 +100,7 @@ jobs:
         with:
           node-version: 12
 
-      - name: Checkout ${{ env.share_components }} new release
-        if: ${{ needs.versions.outputs.new_release == 'true' }}
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.owner }}/${{ env.share_components }}
-          ref: refs/tags/${{ needs.versions.outputs.component_version }}
-          path: ./${{ env.share_components }}
-          token: ${{ secrets.obsidians_token }}
-
       - name: Checkout ${{ env.share_components }}
-        if: ${{ needs.versions.outputs.new_release != 'true' }}
         uses: actions/checkout@v2
         with:
           repository: ${{ env.owner }}/${{ env.share_components }}
@@ -154,17 +108,7 @@ jobs:
           path: ./${{ env.share_components }}
           token: ${{ secrets.obsidians_token }}
 
-      - name: Checkout ${{ env.own_components }} new release
-        if: ${{ needs.versions.outputs.new_release == 'true' }}
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.owner }}/${{ env.own_components }}
-          ref: refs/tags/${{ needs.versions.outputs.component_version }}
-          path: ./${{ env.own_components }}
-          token: ${{ secrets.obsidians_token }}
-
       - name: Checkout ${{ env.own_components }}
-        if: ${{ needs.versions.outputs.new_release != 'true' }}
         uses: actions/checkout@v2
         with:
           repository: ${{ env.owner }}/${{ env.own_components }}
