@@ -1,8 +1,8 @@
 const os = require('os')
 const path = require('path')
-const webpack = require('webpack')
 const {
   override,
+  addWebpackExternals,
   addWebpackAlias,
   addWebpackPlugin
 } = require('customize-cra')
@@ -53,6 +53,7 @@ const overrides = [
     '@obsidians/welcome': `@obsidians/${process.env.BUILD}-welcome`,
   }),
   overrideProcessEnv({
+    CDN: JSON.stringify(!!process.env.CDN),
     BUILD: JSON.stringify(process.env.BUILD),
     PROJECT: JSON.stringify(process.env.PROJECT || process.env.BUILD),
     PROJECT_NAME: JSON.stringify(process.env.PROJECT_NAME),
@@ -63,11 +64,19 @@ const overrides = [
   addWasmLoader(),
 ]
 
-overrides.push(addWebpackPlugin(
-  new MonacoWebpackPlugin({
-    languages: ['json', 'javascript', 'typescript', 'css', 'html', 'markdown', 'c', 'cpp', 'shell']
-  })
-))
+if (process.env.CDN) {
+  overrides.unshift(addWebpackExternals({
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'monaco-editor': 'monaco'
+  }))
+} else {
+  overrides.push(addWebpackPlugin(
+    new MonacoWebpackPlugin({
+      languages: ['json', 'javascript', 'typescript', 'css', 'html', 'markdown', 'c', 'cpp', 'shell']
+    })
+  ))
+}
 
 module.exports = {
   webpack: override(...overrides)

@@ -16,8 +16,10 @@
   },
   "scripts": {
     "install": "electron-rebuild",
+    "dev:local": "REACT_APP_IPC_SERVER_URL=http://localhost:7001 react-app-rewired start",
     "dev:react": "react-app-rewired start",
     "build:react": "react-app-rewired build",
+    "build:web": "PUBLIC_URL=/ CDN=true yarn build:react",
     "dev:main": "webpack --config webpack.main.config.js && electron ./dev/index.js",
     "build:main": "cross-env NODE_ENV=production webpack --config webpack.main.prod.config.js",
     "prepare:main": "electron-rebuild && electron-builder install-app-deps",
@@ -41,6 +43,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "prettier-plugin-solidity": "^1.0.0-alpha.54",
+    "socket.io-client": "^3.0.5",
     "strip-ansi": "^6.0.0",
     "trash": "^6.0.0"
   },
@@ -73,6 +76,7 @@
     "jsbi": "^3.1.1",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "loadjs": "^4.2.0",
     "lodash": "^4.17.14",
     "moment": "^2.24.0",
     "monaco-editor": "^0.20.0",
