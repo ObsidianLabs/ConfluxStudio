@@ -4,6 +4,7 @@ import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 
 import Auth from '@obsidians/auth'
 import { Input, LoadingScreen, CenterScreen } from '@obsidians/ui-components'
+import { NewProjectModal } from '@obsidians/project'
 
 import BottomBar from './BottomBar'
 
@@ -13,6 +14,20 @@ Input.defaultProps = {
   autoCorrect: 'off',
   autoCapitalize: 'off',
   spellCheck: 'false'
+}
+
+NewProjectModal.defaultProps = {
+  defaultTemplate: 'coin',
+  templates: [
+    { id: 'coin', display: 'Coin' },
+    {
+      group: `${process.env.COMPILER_NAME}`,
+      badge: `${process.env.COMPILER_NAME}`,
+      children: [
+        { id: 'metacoin', display: 'Metacoin' },
+      ],
+    },
+  ]
 }
 
 const UserHomepage = lazy(() => import('./UserHomepage' /* webpackChunkName: "tabs" */))

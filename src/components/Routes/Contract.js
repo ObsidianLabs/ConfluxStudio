@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Screen, Button } from '@obsidians/ui-components'
 import redux, { connect } from '@obsidians/redux'
-import Contract from '@obsidians/conflux-contract'
+import Contract from '@obsidians/contract'
 
 import { withRouter } from 'react-router-dom'
 

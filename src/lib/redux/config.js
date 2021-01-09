@@ -2,7 +2,7 @@ import Immutable, { List, Map } from 'immutable'
 
 export { redux as projects } from '@obsidians/project'
 export { redux as keypairs } from '@obsidians/keypair'
-export { redux as abis } from '@obsidians/conflux-contract'
+export { redux as abis } from '@obsidians/contract'
 export { redux as queue } from '@obsidians/queue'
 
 export const version = {
