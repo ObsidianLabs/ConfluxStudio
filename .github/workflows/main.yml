@@ -11,7 +11,7 @@ env:
   own_components: conflux-components
   share_components: electron-components
   eth_components: eth-components
-  project_build: conflux
+  project_build: eth
   project_name: Conflux Studio
   project_build_script: yarn && yarn dist
   os_matrix: '[\"macos-latest\", \"ubuntu-18.04\", \"windows-2019\"]'
