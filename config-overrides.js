@@ -67,6 +67,7 @@ const overrides = [
     TOKEN_SYMBOL: '"CFX"',
     COMPILER_NAME: '"Conflux Truffle"',
     COMPILER_NAME_IN_LABEL: '"Conflux truffle"',
+    COMPILER_EXECUTABLE_NAME: '"cfxtruffle"',
     COMPILER_VERSION_KEY: '"cfxtruffle"',
     DOCKER_IMAGE_NODE: '"confluxchain/conflux-rust"',
     DOCKER_IMAGE_TRUFFLE: '"obsidians/conflux-truffle"',
