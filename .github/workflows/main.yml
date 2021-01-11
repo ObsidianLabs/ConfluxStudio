@@ -12,6 +12,7 @@ env:
   share_components: electron-components
   eth_components: eth-components
   project_build: eth
+  project_project: conflux
   project_name: Conflux Studio
   project_build_script: yarn && yarn dist
   os_matrix: '[\"macos-latest\", \"ubuntu-18.04\", \"windows-2019\"]'
@@ -171,7 +172,7 @@ jobs:
         uses: ObsidianLabs/studio-build-action@master
         with:
           build: ${{ env.project_build }}
-          project: conflux
+          project: ${{ env.project_project }}
           project_name: ${{ env.project_name }}
           build_script: ${{ env.project_build_script }}
           working-directory: ./studio
