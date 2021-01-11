@@ -10,6 +10,7 @@ env:
   owner: ObsidianLabs
   own_components: conflux-components
   share_components: electron-components
+  eth_components: eth-components
   project_build: conflux
   project_name: Conflux Studio
   project_build_script: yarn && yarn dist
@@ -108,6 +109,14 @@ jobs:
           path: ./${{ env.share_components }}
           token: ${{ secrets.obsidians_token }}
 
+      - name: Checkout ${{ env.eth_components }}
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.owner }}/${{ env.eth_components }}
+          ref: master
+          path: ./${{ env.eth_components }}
+          token: ${{ secrets.obsidians_token }}
+
       - name: Checkout ${{ env.own_components }}
         uses: actions/checkout@v2
         with:
@@ -132,6 +141,18 @@ jobs:
 
       - name: Build ${{ env.share_components }}
         working-directory: ./${{ env.share_components }}
+        run: yarn build
+
+      - name: Install ${{ env.eth_components }} submodule
+        working-directory: ./${{ env.eth_components }}
+        run: git submodule update --init
+
+      - name: Install ${{ env.eth_components }} dependencies
+        working-directory: ./${{ env.eth_components }}
+        run: yarn
+
+      - name: Build ${{ env.eth_components }}
+        working-directory: ./${{ env.eth_components }}
         run: yarn build
 
       - name: Install ${{ env.own_components }} submodule
