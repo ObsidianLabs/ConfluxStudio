@@ -171,6 +171,7 @@ jobs:
         uses: ObsidianLabs/studio-build-action@master
         with:
           build: ${{ env.project_build }}
+          project: conflux
           project_name: ${{ env.project_name }}
           build_script: ${{ env.project_build_script }}
           working-directory: ./studio
