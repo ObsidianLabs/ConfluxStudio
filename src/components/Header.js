@@ -41,6 +41,7 @@ if (platform.isDesktop) {
     fullName: 'Development Network',
     icon: 'fas fa-laptop-code',
     notification: 'Switched to <b>Development</b> network.',
+    url: 'http://localhost:12537',
     chainId: 0,
   })
 }

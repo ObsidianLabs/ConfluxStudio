@@ -70,6 +70,7 @@ const overrides = [
     COMPILER_EXECUTABLE_NAME: '"cfxtruffle"',
     COMPILER_VERSION_KEY: '"cfxtruffle"',
     DOCKER_IMAGE_NODE: '"confluxchain/conflux-rust"',
+    DOCKER_IMAGE_NODE_MIN_VERSION: '"1.0.0"',
     DOCKER_IMAGE_TRUFFLE: '"obsidians/conflux-truffle"',
   }),
   addWasmLoader(),

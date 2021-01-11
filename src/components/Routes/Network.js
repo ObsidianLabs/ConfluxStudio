@@ -35,6 +35,8 @@ class NetworkWithProps extends PureComponent {
   render () {
     return (
       <Network
+        minerKey
+        // minerTerminal
         network={this.props.network}
         active={this.state.active}
       />
