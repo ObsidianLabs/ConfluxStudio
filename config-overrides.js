@@ -64,6 +64,8 @@ const overrides = [
     OS_IS_MAC: JSON.stringify(os.type() === 'Darwin'),
     CHAIN_NAME: '"Conflux"',
     CHAIN_SHORT_NAME: '"CFX"',
+    CHAIN_EXECUTABLE_NAME: '"Conflux Node"',
+    CHAIN_EXECUTABLE_NAME_IN_LABEL: '"Conflux node"',
     TOKEN_SYMBOL: '"CFX"',
     COMPILER_NAME: '"Conflux Truffle"',
     COMPILER_NAME_IN_LABEL: '"Conflux truffle"',
