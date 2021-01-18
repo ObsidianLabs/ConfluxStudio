@@ -37,7 +37,7 @@ class NetworkWithProps extends PureComponent {
       <Network
         minerKey
         // minerTerminal
-        network={this.props.network}
+        networkId={this.props.network}
         active={this.state.active}
       />
     )
