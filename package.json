@@ -3,7 +3,7 @@
   "description": "Graphic IDE for Conflux smart contract development",
   "version": "0.5.2",
   "author": {
-    "name": "Conflux Studio",
+    "name": "Phil Li",
     "email": "phil.li@obsidians.io",
     "url": "https://obsidians.io"
   },
