@@ -70,7 +70,7 @@ module.exports = merge.smart(baseConfig, {
       'process.env.BUILD': JSON.stringify(process.env.BUILD),
       'process.env.PROJECT': JSON.stringify(process.env.PROJECT || process.env.BUILD),
       'process.env.DOCKER_IMAGE_NODE': '"confluxchain/conflux-rust"',
-      'process.env.DOCKER_IMAGE_TRUFFLE': '"obsidians/conflux-truffle"',
+      'process.env.DOCKER_IMAGE_COMPILER': '"obsidians/conflux-truffle"',
     })
   ]
 })
