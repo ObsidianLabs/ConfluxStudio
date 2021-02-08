@@ -106,6 +106,7 @@ class ExplorerWithProps extends Component {
         onValueChanged={this.onValueChanged}
         onChangeStarred={this.onChangeStarred}
         onTabsUpdated={this.onTabsUpdated}
+        key={network}
       />
     )
   }
