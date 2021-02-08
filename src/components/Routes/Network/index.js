@@ -5,6 +5,8 @@ import { connect } from '@obsidians/redux'
 import Network from '@obsidians/network'
 import nodeManager from '@obsidians/node'
 
+import RemoteNetwork from './RemoteNetwork'
+
 nodeManager.generateCommand = ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`
 
@@ -40,6 +42,7 @@ class NetworkWithProps extends PureComponent {
         // minerTerminal
         networkId={this.props.network}
         active={this.state.active}
+        RemoteNetwork={RemoteNetwork}
       />
     )
   }
