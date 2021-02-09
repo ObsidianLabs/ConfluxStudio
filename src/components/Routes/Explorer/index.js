@@ -6,6 +6,8 @@ import Explorer from '@obsidians/explorer'
 
 import { withRouter } from 'react-router-dom'
 
+import ExtraToolbarButtons from './ExtraToolbarButtons'
+
 class ExplorerWithProps extends Component {
   constructor (props) {
     super(props)
@@ -100,13 +102,13 @@ class ExplorerWithProps extends Component {
         ref={this.page}
         network={network}
         address={this.getSelected()}
+        ExtraToolbarButtons={ExtraToolbarButtons}
         tabs={this.getTabs()}
         starred={this.getStarred()}
         addressBook={this.state.addressBook}
         onValueChanged={this.onValueChanged}
         onChangeStarred={this.onChangeStarred}
         onTabsUpdated={this.onTabsUpdated}
-        key={network}
       />
     )
   }
