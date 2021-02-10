@@ -4,7 +4,7 @@ const { AutoUpdate } = require('@obsidians/global')
 const CompilerManager = require('@obsidians/eth-compiler')
 const { InstanceManager } = require('@obsidians/conflux-network')
 const ProjectChannel = require('@obsidians/conflux-project')
-const AuthChannel = require('@obsidians/auth')
+// const AuthChannel = require('@obsidians/auth')
 
 let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, authChannel
 module.exports = function () {
@@ -14,5 +14,5 @@ module.exports = function () {
   compilerManager = new CompilerManager()
   instanceManager = new InstanceManager()
   projectChannel = new ProjectChannel()
-  authChannel = new AuthChannel()
+  // authChannel = new AuthChannel()
 }
