@@ -11,6 +11,14 @@ import { List } from 'immutable'
 
 const networkList = List(networks)
 
+const extraContractItems = [
+  { header: 'internal contracts' },
+  { id: '0x0888000000000000000000000000000000000000', name: 'AdminControl' },
+  { id: '0x0888000000000000000000000000000000000001', name: 'SponsorWhitelistControl' },
+  { id: '0x0888000000000000000000000000000000000002', name: 'Staking' },
+  { divider: true },
+]
+
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
     actions.history = this.props.history
@@ -60,6 +68,7 @@ class HeaderWithRedux extends PureComponent {
         selectedContract={selectedContract}
         selectedAccount={selectedAccount}
         starred={starred}
+        extraContractItems={extraContractItems}
         network={selectedNetwork}
         networkList={groupedNetworks}
       />
