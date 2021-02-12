@@ -6,6 +6,34 @@ import {
 
 import notification from '@obsidians/notification'
 
+// export default class FaucetButton extends PureComponent {
+
+//   convert = () => {
+//     const convertedAddress = networkManager.sdk.convertAddress(this.props.address)
+
+//     const explorer = this.props.explorer
+
+//     // explorer.tabs?.current?.navbar?.current?.onChange({ target: { value: convertedAddress } })
+//     // explorer.tabs?.current?.updateTab({ value: convertedAddress })
+//     explorer.onValue(convertedAddress)
+//   }
+
+//   render () {
+//     if (!networkManager.sdk?.isValidAddress(this.props.address)) {
+//       return null
+//     }
+//     return (
+//       <ToolbarButton
+//         id='navbar-convert'
+//         size='md'
+//         icon='fas fa-repeat'
+//         tooltip='Convert'
+//         onClick={this.convert}
+//       />
+//     )
+//   }
+// }
+
 export default class FaucetButton extends PureComponent {
   claim = async () => {
     let faucetUrl
