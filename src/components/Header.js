@@ -37,8 +37,7 @@ class HeaderWithRedux extends PureComponent {
       if (key !== 'default') {
         networkList.push({ header: key })
       }
-      const networkGroup = groups[key].sort((b, a) => b.name < a.name ? -1 : 1)
-      networkGroup.forEach(network => networkList.push(network))
+      groups[key].forEach(network => networkList.push(network))
       if (index !== keys.length - 1) {
         networkList.push({ divider: true })
       }
