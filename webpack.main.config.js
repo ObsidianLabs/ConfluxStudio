@@ -58,6 +58,10 @@ module.exports = merge.smart(baseConfig, {
         to: 'templates'
       },
       {
+        from: 'node_modules/@obsidians/eth-project/main/templates',
+        to: 'templates'
+      },
+      {
         from: 'assets/icon.png',
         to: 'icon.png'
       }

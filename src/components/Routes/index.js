@@ -20,6 +20,14 @@ NewProjectModal.defaultProps = {
   defaultTemplate: 'coin',
   templates: [
     { id: 'coin', display: 'Coin' },
+    { id: 'sponsor', display: 'Sponsored Coin' },
+    {
+      group: 'open zeppelin',
+      badge: 'Open Zeppelin',
+      children: [
+        { id: 'openzeppelin', display: 'Open Zeppelin' },
+      ],
+    },
     {
       group: `${process.env.COMPILER_NAME}`,
       badge: `${process.env.COMPILER_NAME}`,
