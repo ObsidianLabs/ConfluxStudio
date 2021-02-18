@@ -75,7 +75,7 @@ const overrides = [
     DOCKER_IMAGE_NODE: '"confluxchain/conflux-rust"',
     DOCKER_IMAGE_NODE_MIN_VERSION: '"1.0.0"',
     DOCKER_IMAGE_COMPILER: '"obsidians/conflux-truffle"',
-    ENABLE_AUTH: JSON.stringify(!!process.env.ENABLE_AUTH),
+    // ENABLE_AUTH: true,
   }),
   addWasmLoader(),
 ]
