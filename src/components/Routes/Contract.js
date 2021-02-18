@@ -68,7 +68,7 @@ class ContractWithProps extends Component {
   onChangeStarred = starred => {
     redux.dispatch('SET_STARRED', {
       network: this.props.network,
-      starred
+      starred: starred.map(address => address.toLowerCase())
     })
   }
 
@@ -99,6 +99,7 @@ class ContractWithProps extends Component {
       <Contract
         ref={this.page}
         network={network}
+        signer={uiState.get('signer')}
         address={this.getSelected()}
         tabs={this.getTabs()}
         starred={this.getStarred()}
