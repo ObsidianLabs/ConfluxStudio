@@ -9333,10 +9333,10 @@ js-base64@^2.1.8:
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.1.tgz#c328374225d2e65569791ded73c258e2c59334c7"
   integrity sha512-G5x2saUTupU9D/xBY9snJs3TxvwX8EkpLFiYlPpDt/VmMHOXprnSU1nxiTmFbijCX4BLF/cMRIfAcC5BiMYgFQ==
 
-js-conflux-sdk@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-1.5.10.tgz#972169e76486823ec4bccef3a3a5e72c54d3166b"
-  integrity sha512-m7MTA/mKbpOtdzgKpOhnHfqWDVPX2xeCe72Zor0r6/KYHGh5WbQ9uthCOPWzOns4NGxUKdGv3BOAlxa8k0lPtg==
+js-conflux-sdk@1.5.11:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/js-conflux-sdk/-/js-conflux-sdk-1.5.11.tgz#8c3bbc0b8e64739b3b076ba48005acb7d98b6358"
+  integrity sha512-eN8T12pOa1OAiaCzXhR+nq0dPLfYHq85wdTlg25H+xix3SXOJ+Xl46Ht/K5cpF3U4as2u9g3gYV5RRIsI/Bp/g==
   dependencies:
     "@babel/runtime" "^7.8.4"
     big.js "^5.2.2"
