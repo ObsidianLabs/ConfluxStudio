@@ -113,13 +113,6 @@ module.exports = function createMenu () {
     ]
   }
 
-  const help = {
-    label: 'Help',
-    submenu: [
-      { label: `Conflux Studio Telegram Group`, click: () => shell.openExternal('https://t.me') },
-    ]
-  }
-
   const debug = {
     label: 'Debug',
     submenu: [
@@ -132,7 +125,6 @@ module.exports = function createMenu () {
     file,
     edit,
     view,
-    help
   ]
 
   if (os.type() === 'Darwin') {
