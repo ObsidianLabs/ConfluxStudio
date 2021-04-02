@@ -5,6 +5,7 @@ import {
 } from '@obsidians/ui-components'
 
 import notification from '@obsidians/notification'
+import { utils } from '@obsidians/sdk'
 
 // export default class FaucetButton extends PureComponent {
 
@@ -37,8 +38,9 @@ import notification from '@obsidians/notification'
 export default class FaucetButton extends PureComponent {
   claim = async () => {
     let faucetUrl
+    const hexAddress = utils.format.hexAddress(this.props.address?.toLowerCase())
     if (this.props.network === 'testnet') {
-      faucetUrl = `http://test-faucet.conflux-chain.org:18088/dev/ask?address=${this.props.address?.toLowerCase()}`
+      faucetUrl = `http://test-faucet.conflux-chain.org:18088/dev/ask?address=${hexAddress}`
     } else {
       return
     }
