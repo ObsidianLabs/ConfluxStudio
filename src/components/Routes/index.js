@@ -19,6 +19,7 @@ Input.defaultProps = {
 NewProjectModal.defaultProps = {
   defaultTemplate: 'coin',
   templates: [
+    { id: 'empty', display: 'Empty Project' },
     { id: 'coin', display: 'Coin' },
     { id: 'sponsor', display: 'Sponsored Coin' },
     {
