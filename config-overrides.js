@@ -41,8 +41,6 @@ function addWasmLoader (options) {
 const overrides = [
   addWebpackAlias({
     crypto: 'crypto-browserify',
-    'prettier/standalone': 'prettier/standalone',
-    prettier: 'prettier/standalone',
     '@': path.resolve(__dirname, 'src/lib'),
     '@obsidians/welcome': `@obsidians/${process.env.BUILD}-welcome`,
     '@obsidians/header': `@obsidians/${process.env.BUILD}-header`,
@@ -73,7 +71,6 @@ const overrides = [
     COMPILER_EXECUTABLE_NAME: '"cfxtruffle"',
     COMPILER_VERSION_KEY: '"cfxtruffle"',
     DOCKER_IMAGE_NODE: '"confluxchain/conflux-rust"',
-    DOCKER_IMAGE_NODE_MIN_VERSION: '"1.0.0"',
     DOCKER_IMAGE_COMPILER: '"obsidians/conflux-truffle"',
     // ENABLE_AUTH: true,
   }),

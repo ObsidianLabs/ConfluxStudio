@@ -7,6 +7,9 @@ import Welcome, { checkDependencies } from '@obsidians/welcome'
 import { GlobalModals, autoUpdater } from '@obsidians/global'
 import { LoadingScreen } from '@obsidians/ui-components'
 import redux, { Provider } from '@obsidians/redux'
+import { instanceChannel } from '@obsidians/network'
+import { DockerImageChannel } from '@obsidians/docker'
+import semver from 'semver'
 
 import { config, updateStore } from '@/redux'
 import '@/menu'
@@ -14,6 +17,10 @@ import '@/menu'
 import Routes from './components/Routes'
 import icon from './components/icon.png'
 const Header = lazy(() => import('./components/Header' /* webpackChunkName: "components" */))
+
+instanceChannel.node = new DockerImageChannel(process.env.DOCKER_IMAGE_NODE, {
+  filter: v => semver.valid(v) && semver.gte(v, '1.0.0') && v.indexOf('testnet') === -1 && v.indexOf('mainnet') === -1
+})
 
 export default class ReduxApp extends Component {
   state = {
