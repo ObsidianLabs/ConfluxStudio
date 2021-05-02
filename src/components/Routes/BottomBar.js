@@ -6,7 +6,7 @@ import BottomBar from '@obsidians/bottombar'
 function BottomBarWithProps (props) {
   return (
     <BottomBar
-      chains={['testnet', 'mainnet']}
+      chains={['dev', 'testnet', 'mainnet']}
       txs={props.queue.getIn([props.network, 'txs'])}
     />
   )

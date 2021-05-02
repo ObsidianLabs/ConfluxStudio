@@ -32,7 +32,8 @@ class HeaderWithRedux extends PureComponent {
 
   componentDidUpdate (props) {
     if (this.props.network !== props.network) {
-      const prefix = this.props.network === 'tethys' ? 'cfx:' : 'cfxtest:'
+      const network = this.props.network
+      const prefix = network === 'tethys' ? 'cfx:' : network === 'testnet' ? 'cfxtest:' : '0x'
       KeypairInputSelector.defaultProps = {
         filter: k => k.address?.startsWith(prefix)
       }
@@ -71,7 +72,7 @@ class HeaderWithRedux extends PureComponent {
     const selectedContract = contracts.getIn([network, 'selected']) || ''
     const selectedAccount = accounts.getIn([network, 'selected']) || ''
 
-    const prefix = network === 'tethys' ? 'cfx:' : 'cfxtest:'
+    const prefix = network === 'tethys' ? 'cfx:' : network === 'testnet' ? 'cfxtest:' : '0x'
     const keypairManagerFilter = k => k.id.startsWith(prefix)
 
     return (
