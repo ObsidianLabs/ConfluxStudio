@@ -7,7 +7,7 @@ import {
 import { networkManager } from '@obsidians/eth-network'
 import redux from '@obsidians/redux'
 
-export default class FaucetButton extends PureComponent {
+export default class ConvertButton extends PureComponent {
 
   convert = () => {
     const convertedAddress = networkManager.sdk.convertAddress(this.props.address)

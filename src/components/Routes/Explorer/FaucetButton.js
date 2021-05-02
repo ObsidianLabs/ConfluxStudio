@@ -64,6 +64,9 @@ export default class FaucetButton extends PureComponent {
   }
 
   render () {
+    if (this.props.network !== 'testnet') {
+      return null
+    }
     return (
       <ToolbarButton
         id='navbar-cfx-faucet'
