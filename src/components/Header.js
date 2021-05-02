@@ -6,6 +6,7 @@ import { networks } from '@obsidians/sdk'
 import headerActions, { Header, NavGuard } from '@obsidians/header'
 import { networkManager } from '@obsidians/network'
 import { actions } from '@obsidians/workspace'
+import { KeypairInputSelector } from '@obsidians/keypair'
 
 import { List } from 'immutable'
 
@@ -27,6 +28,15 @@ class HeaderWithRedux extends PureComponent {
       networkManager.setNetwork(networkList.get(0))
     }
     this.navGuard = new NavGuard(this.props.history)
+  }
+
+  componentDidUpdate (props) {
+    if (this.props.network !== props.network) {
+      const prefix = this.props.network === 'tethys' ? 'cfx:' : 'cfxtest:'
+      KeypairInputSelector.defaultProps = {
+        filter: k => k.address?.startsWith(prefix)
+      }
+    }
   }
 
   groupedNetworks = networksByGroup => {
@@ -61,6 +71,9 @@ class HeaderWithRedux extends PureComponent {
     const selectedContract = contracts.getIn([network, 'selected']) || ''
     const selectedAccount = accounts.getIn([network, 'selected']) || ''
 
+    const prefix = network === 'tethys' ? 'cfx:' : 'cfxtest:'
+    const keypairManagerFilter = k => k.id.startsWith(prefix)
+
     return (
       <Header
         profile={profile}
@@ -70,6 +83,7 @@ class HeaderWithRedux extends PureComponent {
         selectedAccount={selectedAccount}
         starred={starred}
         starredContracts={starredContracts}
+        keypairManagerFilter={keypairManagerFilter}
         browserAccounts={browserAccounts}
         extraContractItems={extraContractItems}
         network={selectedNetwork}
