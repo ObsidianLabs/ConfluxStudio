@@ -21,6 +21,7 @@ function overrideProcessEnv (value) {
       ...processEnv,
       ...value
     }
+    return config
   }
 }
 
