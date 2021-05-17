@@ -22,6 +22,7 @@ NewProjectModal.defaultProps = {
     { id: 'empty', display: 'Empty Project' },
     { id: 'coin', display: 'Coin' },
     { id: 'sponsor', display: 'Sponsored Coin' },
+    { id: 'erc20', display: 'ERC20 Token' },
     {
       group: 'open zeppelin',
       badge: 'Open Zeppelin',
