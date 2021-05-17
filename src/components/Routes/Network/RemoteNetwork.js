@@ -5,7 +5,7 @@ import {
   TableCardRow,
 } from '@obsidians/ui-components'
 
-import moment from 'moment'
+import notification from '@obsidians/notification'
 
 import { networkManager } from '@obsidians/network'
 
