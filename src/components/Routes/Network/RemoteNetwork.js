@@ -44,10 +44,12 @@ export default class RemoteNetwork extends PureComponent {
     }
     this.refreshBlock()
     const networkId = this.props.networkId
-    const info = await networkManager.sdk?.networkInfo()
-    if (this.props.networkId === networkId) {
-      this.setState({ info })
-    }
+    try {
+      const info = await networkManager.sdk?.networkInfo()
+      if (this.props.networkId === networkId) {
+        this.setState({ info })
+      }
+    } catch {}
   }
 
   async refreshBlock () {
@@ -62,7 +64,7 @@ export default class RemoteNetwork extends PureComponent {
       }
     } catch (error) {
       console.warn(error)
-      if (error.message === 'Failed to fetch') {
+      if (error.message.startsWith('Request has been terminated')) {
         notification.error('Internet Disconnected')
         if (this.h) {
           clearInterval(this.h)
