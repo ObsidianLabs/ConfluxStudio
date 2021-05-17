@@ -62,6 +62,13 @@ export default class RemoteNetwork extends PureComponent {
       }
     } catch (error) {
       console.warn(error)
+      if (error.message === 'Failed to fetch') {
+        notification.error('Internet Disconnected')
+        if (this.h) {
+          clearInterval(this.h)
+        }
+        this.h = undefined
+      }
       this.setState({ status: null })
     }
   }
