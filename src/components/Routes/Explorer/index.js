@@ -1,8 +1,12 @@
 import React from 'react'
 
-import Explorer from '@obsidians/explorer'
+import Explorer, { TransferButton } from '@obsidians/explorer'
 import FaucetButton from './FaucetButton'
 import ConvertButton from './ConvertButton'
+
+TransferButton.defaultProps = {
+  addressLength: 50,
+}
 
 Explorer.defaultProps = {
   ...Explorer.defaultProps,
