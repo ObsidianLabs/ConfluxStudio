@@ -20,6 +20,11 @@ const extraContractItems = [
   { divider: true },
 ]
 
+const prefix = {
+  tethys: 'cfx:',
+  testnet: 'cfxtest:',
+}
+
 class HeaderWithRedux extends PureComponent {
   componentDidMount () {
     actions.history = this.props.history
@@ -72,8 +77,7 @@ class HeaderWithRedux extends PureComponent {
     const selectedContract = contracts.getIn([network, 'selected']) || ''
     const selectedAccount = accounts.getIn([network, 'selected']) || ''
 
-    const prefix = network === 'tethys' ? 'cfx:' : network === 'testnet' ? 'cfxtest:' : '0x'
-    const keypairManagerFilter = k => k.id.startsWith(prefix)
+    const keypairManagerFilter = k => k.id.startsWith(prefix[network] || '0x')
 
     return (
       <Header
