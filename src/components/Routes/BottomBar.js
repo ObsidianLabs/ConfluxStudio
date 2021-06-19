@@ -1,7 +1,7 @@
 import BottomBar from '@obsidians/bottombar'
 
 BottomBar.defaultProps = {
-  mnemonic: false,
+  mnemonic: true,
   chains: [
     { key: 'dev', text: 'Local develop networks', filter: key => key.startsWith('0x') },
     { key: 'testnet', text: 'Testnet', filter: key => key.startsWith('cfxtest:') },
