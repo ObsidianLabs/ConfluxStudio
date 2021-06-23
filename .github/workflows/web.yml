@@ -19,7 +19,7 @@ env:
   enable_auth: true
   cos_bucket: conflux-ide-1303090311
   cos_region: ap-singapore
-  dns_path: https://conflux.obsidians.io/
+  dns_path: https://conflux.ide.black/
 
 jobs:
   # Build and release
