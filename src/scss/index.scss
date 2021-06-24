@@ -451,3 +451,7 @@ textarea {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.token-dropdown-item {
+  width: fit-content !important;
+}
