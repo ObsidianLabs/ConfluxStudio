@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 
+import platform from '@obsidians/platform'
 import Auth from '@obsidians/auth'
 import { Input, LoadingScreen, CenterScreen } from '@obsidians/ui-components'
 import { NewProjectModal } from '@obsidians/project'
@@ -16,29 +17,13 @@ Input.defaultProps = {
   spellCheck: 'false'
 }
 
-NewProjectModal.defaultProps = {
-  defaultTemplate: 'coin',
-  templates: [
-    { id: 'empty', display: 'Empty Project' },
-    { id: 'coin', display: 'Coin' },
-    { id: 'sponsor', display: 'Sponsored Coin' },
-    { id: 'erc20', display: 'ERC20 Token' },
-    {
-      group: 'open zeppelin',
-      badge: 'Open Zeppelin',
-      children: [
-        { id: 'openzeppelin', display: 'Basics - ERC20, ERC721 & ERC1155 (v3.1+)' },
-        { id: 'erc777', display: 'ERC777 Token (v4+)' },
-      ],
-    },
-    {
-      group: `${process.env.COMPILER_NAME}`,
-      badge: `${process.env.COMPILER_NAME}`,
-      children: [
-        { id: 'metacoin', display: 'Metacoin' },
-      ],
-    },
-  ]
+NewProjectModal.defaultProps.templates.splice(2, 0, 
+  { id: 'sponsor', display: 'Sponsored Coin' },
+)
+if (platform.isDesktop) {
+  NewProjectModal.defaultProps.templates[4].children.push(
+    { id: 'erc777', display: 'ERC777 Token (v4+)' }
+  )
 }
 
 const UserHomepage = lazy(() => import('./UserHomepage' /* webpackChunkName: "tabs" */))
