@@ -20,11 +20,9 @@ Input.defaultProps = {
 NewProjectModal.defaultProps.templates.splice(2, 0, 
   { id: 'sponsor', display: 'Sponsored Coin' },
 )
-if (platform.isDesktop) {
-  NewProjectModal.defaultProps.templates[4].children.push(
-    { id: 'erc777', display: 'ERC777 Token (v4+)' }
-  )
-}
+NewProjectModal.defaultProps.templates[4].children.push(
+  { id: 'erc777', display: 'ERC777 Token (v4+)' }
+)
 
 const UserHomepage = lazy(() => import('./UserHomepage' /* webpackChunkName: "tabs" */))
 const Project = lazy(() => import('./Project' /* webpackChunkName: "tabs" */))

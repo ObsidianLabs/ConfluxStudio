@@ -91,7 +91,7 @@ const overrides = [
     COMPILER_VERSION_KEY: '"cfxtruffle"',
     DOCKER_IMAGE_NODE: '"confluxchain/conflux-rust"',
     DOCKER_IMAGE_COMPILER: '"obsidians/conflux-truffle"',
-    // ENABLE_AUTH: true,
+    ENABLE_AUTH: true,
   }),
   turnOffMangle(),
   addWasmLoader(),
