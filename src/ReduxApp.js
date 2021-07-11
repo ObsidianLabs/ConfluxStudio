@@ -1,5 +1,6 @@
 import React, { Component, Suspense, lazy } from 'react'
 
+import platform from '@obsidians/platform'
 import fileOps from '@obsidians/file-ops'
 import Auth from '@obsidians/auth'
 import { NotificationSystem } from '@obsidians/notification'
@@ -18,7 +19,11 @@ import Routes from './components/Routes'
 import icon from './components/icon.png'
 const Header = lazy(() => import('./components/Header' /* webpackChunkName: "components" */))
 
-instanceChannel.node = new DockerImageChannel(process.env.DOCKER_IMAGE_NODE, {
+let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
+if (platform.isAppleSilicon) {
+  dockerImageForNode += '-arm64'
+}
+instanceChannel.node = new DockerImageChannel(dockerImageForNode, {
   filter: v => semver.valid(v) && semver.gte(v, '1.0.0') && v.indexOf('testnet') === -1 && v.indexOf('mainnet') === -1
 })
 

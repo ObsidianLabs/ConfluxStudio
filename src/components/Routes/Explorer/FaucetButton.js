@@ -5,7 +5,7 @@ import {
 } from '@obsidians/ui-components'
 
 import notification from '@obsidians/notification'
-import { utils } from '@obsidians/sdk'
+import { utils } from '@obsidians/conflux-sdk'
 
 // export default class FaucetButton extends PureComponent {
 

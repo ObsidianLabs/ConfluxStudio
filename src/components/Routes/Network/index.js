@@ -1,7 +1,13 @@
+import platform from '@obsidians/platform'
 import Network, { RemoteNetwork, CustomNetwork } from '@obsidians/network'
 import nodeManager from '@obsidians/node'
 
 import RemoteNetworkInfo from './RemoteNetworkInfo'
+
+let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
+if (platform.isAppleSilicon) {
+  dockerImageForNode += '-arm64'
+}
 
 nodeManager.generateCommand = ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`
@@ -15,7 +21,7 @@ nodeManager.generateCommand = ({ name, version }) => {
     `-v ${process.env.PROJECT}-${name}:/${process.env.PROJECT}-node`,
     `-w /${process.env.PROJECT}-node`,
     `--entrypoint conflux`,
-    `${process.env.DOCKER_IMAGE_NODE}:${version}`,
+    `${dockerImageForNode}:${version}`,
     `--config default.toml`
   ].join(' ')
 }

@@ -2,15 +2,13 @@ import React, { PureComponent } from 'react'
 
 import { connect } from '@obsidians/redux'
 
-import { networks } from '@obsidians/sdk'
 import headerActions, { Header, NavGuard } from '@obsidians/header'
 import { networkManager } from '@obsidians/network'
 import { actions } from '@obsidians/workspace'
-import { KeypairInputSelector } from '@obsidians/keypair'
+import keypairManager, { KeypairInputSelector } from '@obsidians/keypair'
 
 import { List } from 'immutable'
-
-const networkList = List(networks)
+import ConfluxSdk, { kp } from '@obsidians/conflux-sdk'
 
 const extraContractItems = [
   { header: 'internal contracts' },
@@ -25,12 +23,20 @@ const prefix = {
   testnet: 'cfxtest:',
 }
 
+keypairManager.kp = kp
+networkManager.addSdk(ConfluxSdk, ConfluxSdk.networks)
+
 class HeaderWithRedux extends PureComponent {
+  state = {
+    networkList: List(),
+  }
+
   componentDidMount () {
     actions.history = this.props.history
     headerActions.history = this.props.history
+    this.setState({ networkList: List(networkManager.networks) }, this.setNetwork)
     if (!networkManager.network) {
-      networkManager.setNetwork(networkList.get(0))
+      networkManager.setNetwork(networkManager.networks[0])
     }
     this.navGuard = new NavGuard(this.props.history)
   }
@@ -66,9 +72,9 @@ class HeaderWithRedux extends PureComponent {
 
     const selectedProject = projects.get('selected')?.toJS() || {}
 
-    const networkGroups = networkList.groupBy(n => n.group)
+    const networkGroups = this.state.networkList.groupBy(n => n.group)
     const groupedNetworks = this.groupedNetworks(networkGroups)
-    const selectedNetwork = networkList.find(n => n.id === network) || {}
+    const selectedNetwork = this.state.networkList.find(n => n.id === network) || {}
 
     const browserAccounts = uiState.get('browserAccounts') || []
     const starred = accounts.getIn([network, 'accounts'])?.toJS() || []
