@@ -5,62 +5,56 @@ import {
 } from '@obsidians/ui-components'
 
 import notification from '@obsidians/notification'
-import { utils } from '@obsidians/conflux-sdk'
 
-// export default class FaucetButton extends PureComponent {
+import { networkManager } from '@obsidians/eth-network'
 
-//   convert = () => {
-//     const convertedAddress = networkManager.sdk.convertAddress(this.props.address)
-
-//     const explorer = this.props.explorer
-
-//     // explorer.tabs?.current?.navbar?.current?.onChange({ target: { value: convertedAddress } })
-//     // explorer.tabs?.current?.updateTab({ value: convertedAddress })
-//     explorer.onValue(convertedAddress)
-//   }
-
-//   render () {
-//     if (!networkManager.sdk?.isValidAddress(this.props.address)) {
-//       return null
-//     }
-//     return (
-//       <ToolbarButton
-//         id='navbar-convert'
-//         size='md'
-//         icon='fas fa-repeat'
-//         tooltip='Convert'
-//         onClick={this.convert}
-//       />
-//     )
-//   }
-// }
+import Faucet from './Faucet.json'
 
 export default class FaucetButton extends PureComponent {
   claim = async () => {
-    let faucetUrl
-    const hexAddress = utils.format.hexAddress(this.props.address?.toLowerCase())
-    if (this.props.network === 'testnet') {
-      faucetUrl = `http://test-faucet.conflux-chain.org:18088/dev/ask?address=${hexAddress}`
-    } else {
+    if (this.props.network !== 'testnet') {
       return
     }
 
-    this.notification = notification.info(`Claiming ${process.env.TOKEN_SYMBOL}...`, `Trying to claim ${process.env.TOKEN_SYMBOL} tokens for <b>${this.props.address}</b>`, 0)
-    let result
+    const faucetContract = networkManager.sdk.contractFrom({
+      address: 'cfxtest:acejjfa80vj06j2jgtz9pngkv423fhkuxj786kjr61',
+      abi: Faucet,
+    })
+    const base32Address = networkManager.sdk.base32Address(this.props.address)
+
+    this.notification = notification.info(`Claiming ${networkManager.symbol} & cUSDT...`, `Trying to claim ${networkManager.symbol} and cUSDT for <b>${this.props.address}</b>`, 0)
+    
+    let tx1 = faucetContract.execute('claimCfx', { array: [] }, { from: base32Address, value: '0' })
     try {
-      const res = await fetch(faucetUrl)
-      result = await res.json()
-    } catch (e) {}
-    this.notification.dismiss()
-    if (!result) {
-      notification.error('Failed', 'Unknown error')
+      const override1 = await networkManager.sdk.estimate(tx1)
+      override1.gasPrice = '1'
+      tx1 = faucetContract.execute('claimCfx', { array: [] }, { ...override1, from: base32Address, value: '0' })
+      const pendingTx1 = networkManager.sdk.sendTransaction(tx1)
+      await pendingTx1.mined()
+    } catch (e) {
+      this.notification.dismiss()
+      notification.error('Claim Token Failed', e.message)
       return
     }
-    if (result.code) {
-      notification.error('Failed', result.message)
-    } else {
-      notification.success(`${process.env.TOKEN_SYMBOL} Claimed`, `Claimed 100 ${process.env.TOKEN_SYMBOL} for <b>${this.props.address}</b>`)
+
+    let tx2 = faucetContract.execute('claimToken', { array: ['cfxtest:acepe88unk7fvs18436178up33hb4zkuf62a9dk1gv'] }, { from: base32Address, value: '0' })
+    try {
+      const override2 = await networkManager.sdk.estimate(tx2)
+      override2.gasPrice = '1'
+      tx2 = faucetContract.execute('claimToken', {
+        array: ['cfxtest:acepe88unk7fvs18436178up33hb4zkuf62a9dk1gv']
+      }, { ...override2, from: base32Address, value: '0' })
+      const pendingTx2 = networkManager.sdk.sendTransaction(tx2)
+      await pendingTx2.mined()
+    } catch (e) {
+      this.notification.dismiss()
+      notification.error('Claim Token Failed', e.message)
+      return
     }
+
+    this.notification.dismiss()
+    notification.success(`${networkManager.symbol} Claimed`, `Claimed 1,000 ${networkManager.symbol} and 1,000 cUSDT for <b>${this.props.address}</b>`)
+    this.props.explorer.currentPage?.refresh()
   }
 
   render () {

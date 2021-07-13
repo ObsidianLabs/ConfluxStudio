@@ -11,12 +11,8 @@ TransferButton.defaultProps = {
 Explorer.defaultProps = {
   ...Explorer.defaultProps,
   ExtraToolbarButtons: ({ explorer, value, ...otherProps }) => <>
-    <ConvertButton
-      explorer={explorer}
-      address={value}
-      {...otherProps}
-    />
-    <FaucetButton address={value} {...otherProps} />
+    <ConvertButton explorer={explorer} address={value} {...otherProps} />
+    <FaucetButton explorer={explorer} address={value} {...otherProps} />
   </>,
 }
 
