@@ -6,7 +6,9 @@ Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnet
 
 
 
-![](./screenshots/studio.png)
+<p align="center">
+  <img src="./screenshots/studio.png" width="720px">
+</p>
 
 ## 安装和访问 Conflux Studio
 
@@ -56,12 +58,12 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 进入主界面后，我们需要首先创建一些密钥对。在 Conflux Studio 的任意界面，点击应用左下⻆的钥匙图标，打开密钥管理器。
 
 <p align="center">
-  <img src="./screenshots/keypairs.png" width="480px">
+  <img src="./screenshots/keypairs.png" width="720px">
 </p>
 你可以在密钥管理器中自由的创建，导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。单击密钥管理器界面左下角的 *Create* 按钮，根据提示输入密钥对名称并选择网络以新建一个密钥对。或者单击 *Import* 按钮，导入已有密钥对。Conflux Studio支持以私钥或者助记词的方式生成或者导入密钥。
 
 <p align="center">
-  <img src="./screenshots/new_keypair.png" width="480px">
+  <img src="./screenshots/new_keypair.png" width="720px">
 </p>
 
 密钥管理器会将不同网络下的密钥对进行分类显示，如果需要查看或管理其他网络下的密钥对，点击密钥管理器中间的标签以切换显示本地开发节点 、 测试网或者*主网下的密钥对，你也可以点击全部网络已显示所有密钥对。
