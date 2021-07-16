@@ -2,7 +2,7 @@
 
 [Click here for English version](https://github.com/ObsidianLabs/ConfluxStudio/blob/master/README.md)
 
-Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 智能合约的集成化开发环境。Conflux Studio 现已支持使用 C, Rust 等N种开发语言开发 Conflux 智能合约， 并提供运行于 macOS, Windows 和 Linux 的桌面版，以及运行于现代浏览器环境中的Web版供各层级的 Conflux 开发者使用。
+Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 智能合约的集成化开发环境。Conflux Studio 现已支持 Solidity 开发语言开发 Conflux 智能合约， 并提供运行于 macOS, Windows 和 Linux 的桌面版，以及运行于现代浏览器环境中的Web版供各层级的 Conflux 开发者使用。
 
 
 
