@@ -29,7 +29,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ## Conflux dApp 开发示例教程
 
-你可以前往 [Conflux DApp 开发教程](https://github.com/ObsidianLabs/conflux-dapp-tutorial/blob/master/README-CN.md)学习如何使用 Conflux Studio 完整地开发一款代币 DApp。
+你可以前往 [Conflux dApp 开发教程](https://github.com/ObsidianLabs/conflux-dapp-tutorial/blob/master/README-CN.md)学习如何使用 Conflux Studio 完整地开发一款代币 dApp。
 
 
 
