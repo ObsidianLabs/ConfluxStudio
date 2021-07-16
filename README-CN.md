@@ -106,9 +106,9 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 <p align="center">
   <img src="./screenshots/crc-20_token_explorer.png" width="720px">
 </p>
-Conflux Studio 区块浏览器针对不同的 Conflux 网络在地址栏右侧集成了常用工具以方便用户使用。当连接主网时，可以单击地址栏右侧的 *Transfer* 按钮进行快速转账，该转账功能支持使用账户中任何一种 ERC-20 代币进行交易，也可以单击 *Convert* 按钮进行地址转换。当连接测试网时，亦可以单击址栏右侧的 *Transfer* 按钮使用账户中任何一种 ERC-20 代币进行转账，或者点击 *Faucet* 按钮申请代币。在使用 Faucet 功能时，Conflux Studio 会自动申请 CFX 以及 cUSDT 两种测试代币，
+Conflux Studio 区块浏览器针对不同的 Conflux 网络在地址栏右侧集成了常用工具以方便用户使用。当连接主网时，可以单击地址栏右侧的 *Transfer* 按钮进行快速转账，该转账功能支持使用账户中任何一种 ERC-20 代币进行交易，也可以单击 *Convert* 按钮进行地址转换。当连接测试网时，亦可以单击址栏右侧的 *Transfer* 按钮使用账户中任何一种 ERC-20 代币进行转账，或者点击 *Faucet* 按钮申请代币。每次使用 Faucet 功能时，Conflux Studio 会自动申请 CFX 以及 cUSDT 两种测试代币。
 
-**请注意：Faucet所申请的这两种代币均为测试代币，没有实际货币价值。**
+**请注意：Faucet 所申请的这两种代币均为测试代币，没有实际货币价值。**
 
 
 
