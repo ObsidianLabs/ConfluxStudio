@@ -6,7 +6,7 @@ Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnet
 
 
 
-![](./screenshots/welcome.png)
+![](./screenshots/studio.png)
 
 ## 安装和访问 Conflux Studio
 
