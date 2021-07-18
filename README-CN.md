@@ -31,6 +31,8 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ## Conflux dApp 开发示例教程
 
+我们通过 Conflux Studio 开发基于 Conflux 区块链上的智能合约。智能合约类似于传统开发流程中的后端服务，它规定一系列链上的交易以完成我们开发中所设定好的功能任务。为了使用户能够方便的调用这些底层服务，避免不必要的门槛和编程的麻烦，我们也还需要编写一个前端应用作为用户界面，这个前端应用以及后端服务组成了一个简单易用的区块链应用，也叫去中心化应用或者dApp。
+
 你可以前往 [Conflux dApp 开发教程](https://github.com/ObsidianLabs/conflux-dapp-tutorial/blob/master/README-CN.md)学习如何使用 Conflux Studio 完整地开发一款代币 dApp。
 
 
