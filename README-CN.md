@@ -62,8 +62,11 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 <p align="center">
   <img src="./screenshots/keypairs.png" width="720px">
 </p>
+你可以在密钥管理器中自由的创建，导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。单击密钥管理器界面左下角的 *Create* 按钮，根据提示输入密钥对名称并选择网络以新建一个密钥对。或者单击 *Import* 按钮，导入已有密钥对。
 
-你可以在密钥管理器中自由的创建，导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。单击密钥管理器界面左下角的 *Create* 按钮，根据提示输入密钥对名称并选择网络以新建一个密钥对。或者单击 *Import* 按钮，导入已有密钥对。Conflux Studio支持以私钥或者助记词的方式生成或者导入密钥。
+**Conflux Studio支持以私钥或者助记词的方式生成或者导入密钥。**生成密钥时， Conflux Studio 默认以私钥方式生成密钥。如需切换为助记词，请点击 *Regenerate* 按钮旁边的三角箭头切换。
+
+
 
 <p align="center">
   <img src="./screenshots/new_keypair.png" width="720px">
