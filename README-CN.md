@@ -58,6 +58,8 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成蓝色的 *Get Started* 按钮。点击这个按钮进入 Conflux Studio 的主界面。
 
+
+
 ### 密钥管理器
 
 进入主界面后，我们需要首先创建一些密钥对。在 Conflux Studio 的任意界面，点击应用左下⻆的钥匙图标，打开密钥管理器。
@@ -116,6 +118,8 @@ Conflux Studio支持以私钥或者助记词的方式生成或者导入密钥。
 
 Conflux Studio 中已经内置了 Conflux 主网和测试网的链接信息。点击 *Network* 标签旁的三角箭头，可以直接选择连接或者一键切换希望使用的 Conflux 网络。
 
+
+
 ### 自定义节点
 
 Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签旁的三角箭头，选择 *Custom Network* 。根据提示输入希望连接的Node URL 信息即可连接。
@@ -147,49 +151,98 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 
 
 
-### 创建智能合约项目
+### 智能合约项目
 
-点击顶部的 *Project* 标签，主页面将切换至项目管理器。点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 目前提供了两个模版：
+#### 项目列表
 
-- `coin`：Conflux实例提供的coin智能合约
-- `[Truffle] metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点
+点击顶部的 *Project* 标签，主页面将切换至项目管理器。点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 目前提供了多种模版：
+
+- `Coin`：Conflux 实例提供的coin智能合约。
+
+- `Sponsored Coin`:  Conflux 实例提供的coin智能合约。
+
+- `[Open Zeppelin]` : 基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20, ERC-721(NFT), ERC-777, 和 ERC-1155 等合约。
+
+- `[Truffle] Metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点。
+
+  
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
 </p>
 
-项目创建完成后，主页面将切换至项目编辑器。项目编辑器由几个部分组成，包括了文件浏览器，代码编辑器，工具栏，日志查看器等多个开发常用模块。
 
-### 编译智能合约项目
+#### 项目编辑器
 
-点击工具栏的编译按钮（锤子形状），Conflux Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下的 `build` 文件夹中生成 json 文件。
+项目创建完成后，主页面将切换至项目编辑器。项目编辑器由几个部分组成，包括了左侧的文件浏览器，文件浏览器上方的工具栏，右侧上半部分的代码编辑器以及右侧下半部分的日志查看器等多个开发常用模块。
+
+
+
+<p align="center">
+  <img src="./screenshots/editor.png" width="720px">
+</p>
+
+
+
+点击工具栏中右侧的 *Project Settings* （齿轮形状）图标，打开项目设置标签页。在这里可以查看和修改项目的基本配置，编译器配置以及 Linter 配置等信息。
+
+
+
+<p align="center">
+  <img src="./screenshots/proj_settings.png" width="720px">
+</p>
+
+
+
+Conflux Studio 的项目编辑器内置了 Linter ，可以自动提示项目代码中的错误。 Conflux Studio会在错误的代码行前标注红色的 × 作为提示。
+
+
+
+### 编译智能合约
+
+点击工具栏的 *Build* 按钮（锤子形状），Conflux Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下的 `build/contracts` 文件夹中查看到编译完成的 `json` 文件，JSON 文件的数据接口可参阅 [solc文档](https://docs.soliditylang.org/en/latest/using-the-compiler.html#output-description) 。
 
 <p align="center">
   <img src="./screenshots/compile.png" width="720px">
 </p>
 
-### 部署智能合约项目
+### 部署智能合约
 
-点击工具栏的部署按钮（船形状），部署参数窗口将被打开，在这里可以输入构造函数的参数、交易签名者、gas limit 和 gas price。
+点击工具栏的 *Deploy* 按钮（船形状），部署参数窗口将被打开，在这里可以输入部署合约所需要的各项参数：
+
+- `Contract ABI` 等待部署的 ABI 文件。ABI文件中规定了合约支持的方法，一个项目内可能存在多个 ABI 文件，可以通过右侧的三角箭头从下拉菜单中选择需要部署的 ABI 。
+- `Constructor Parameters` 构造函数需要的参数。 可以在此填入合约中规定构造函数所需要的各项参数。
+- `Signer` 交易签名使用的密钥地址。通过右侧的三角箭头从下拉菜单中选择需要使用的密钥地址。
+- `Gas Limit` `Gas Price` `Storage Limit` 为交易费用信息。此处可以留空， Conflux Studio 会代为自动估算。
+
+另外也可以通过右键点击你所需要部署的`json`文件，在下拉菜单中选择 *Deploy* ，对该合约进行部署。 
 
 <p align="center">
   <img src="./screenshots/deploy_parameters.png" width="720px">
 </p>
 
-点击 *Deploy* 按钮 Conflux Studio 将进行项目部署，部署结果将会弹窗显示。
+
+
+点击 *Estimate & Deploy* ，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮 Conflux Studio 将执行项目部署。稍后 Conflux Studio 会显示部署结果与交易详情信息。
+
+如需查看部署参数，交易收据，ABI等详细信息，可点击界面上的标签栏进行切换。
+
+
 
 <p align="center">
   <img src="./screenshots/deploy.png" width="720px">
 </p>
 
+
 ### 调用合约
 
-成功部署智能合约后，点击弹窗中点击蓝色的 *contract* 按钮，主页面将切换至合约浏览器，Conflux Studio 将自动打开刚才部署完成的智能合约。
+成功部署智能合约后，点击弹窗中 `Contract Created` 栏的合约地址，页面将自动切换至合约浏览器。你也可以点击顶部的 *Contract* 标签切换至合约浏览器，在地址栏中输入希望打开的合约地址。Conflux Studio 支持同时打开多个合约，方便进行多合约的调试工作。
 
 合约浏览器页面主要分为两个部分：
 
-- 左边为合约的调用方法，点击左半部分的左上角蓝色按钮弹出的下拉框显示当前合约所定义的方法，点击方法名称可以切换调用的方法。
-- 右边为合约的数据读取，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
+- 左边为合约的写入方法调用窗口，点击左半部分的左上角蓝色按钮弹出的下拉框显示当前合约所定义的方法，点击方法名称可以切换调用的方法。
+- 右边为合约的数据读取窗口，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
+- 右边为合约的时间查询窗口，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
 
 Conflux Studio 会自动读取合约 ABI 中的 functions，并为每个 function 生成参数表单。用户可以简单的选择要调用的 function，输入参数，选择签名者（需要为 keypair manager 中存在的地址；读操作不需选择），并点击运行按钮进行合约调用。调用结果（成功或失败）将显示在下方的 result 栏中。
 
