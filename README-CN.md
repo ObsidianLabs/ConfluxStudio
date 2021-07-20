@@ -2,39 +2,32 @@
 
 [Click here for English version](https://github.com/ObsidianLabs/ConfluxStudio/blob/master/README.md)
 
-Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 智能合约的集成化开发环境。Conflux Studio 现已提供运行于 macOS, Windows 和 Linux 的桌面版，以及运行于现代浏览器环境中的  [Conflux Studio Web](https://conflux.ide.black) 版。
-
-
+Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 智能合约的集成化开发环境。Conflux Studio 现已提供运行于 macOS、Windows 和 Linux 的桌面版，以及运行于现代浏览器环境中的 [Conflux Studio Web](https://conflux.ide.black) 版。
 
 <p align="center">
   <img src="./screenshots/studio.png" width="720px">
 </p>
 
-
 ## 使用 Conflux Studio
 
 ### Conflux Studio 桌面版
 
-Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 桌面版支持 macOS , Linux 和 Windows 系统，请根据系统下载对应的版本 (macOS 下载 `.dmg` 或者 `.zip`，Linux 下载 `.AppImage`, Windows 下载 `.exe`)。
+Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 桌面版支持 macOS、Linux 和 Windows 系统，请根据系统下载对应的版本 (macOS 下载 `.dmg` 或者 `.zip`，Linux 下载 `.AppImage`， Windows 下载 `.exe`)。
 
 - **macOS**: 双击打开 `ConfluxStudio-x.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
-  - 第一次运行 Conflux Studio 时，可能会收到系统提示 *”无法打开 "Conflux Studio" , 因为 Apple 无法检查其是否包含恶意软件。“* 此时请打开 *“系统偏好设置”* ，前往 *“安全性与隐私”* 。点按 *“通用”* 面板中 *“仍要打开”* 按钮以允许Conflux Studio运行。
-- **Linux**: 双击打开 `ConfluxStudio-x.x.x.AppImage`, 选择 *Properties* => *Permissions* => *Execute*, 将 *Allow executing file as program* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
+  - 第一次运行 Conflux Studio 时，可能会收到系统 *”无法打开 "Conflux Studio"，因为 Apple 无法检查其是否包含恶意软件“* 的提示。此时请打开 *“系统偏好设置”* ，前往 *“安全性与隐私”* 。点按 *“通用”* 面板中 *“仍要打开”* 按钮以允许 Conflux Studio 运行。
+- **Linux**: 双击打开 `ConfluxStudio-x.x.x.AppImage`， 选择 *Properties* => *Permissions* => *Execute*， 将 *Allow executing file as program* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
 - **Windows**:  双击打开 `ConfluxStudio-x.x.x.exe`。
 
 ### Conflux Studio Web 版
 
 - 在浏览器地址栏中打开 [https://conflux.ide.black](https://conflux.ide.black) 以访问 Conflux Studio Web 版集成开发环境。
 
-
-
 ## Conflux dApp 开发示例教程
 
-通过 Conflux Studio 可以开发基于 Conflux 区块链上的智能合约。智能合约类似于传统开发流程中的后端服务，它规定一系列链上的交易以完成我们开发中所设定好的功能任务。为了使用户能够方便的调用这些底层服务，避免不必要的门槛和编程的麻烦，我们也还需要编写一个前端应用作为用户界面，这个前端应用以及后端服务组成了一个简单易用的区块链应用，也叫去中心化应用或者dApp 。
+通过 Conflux Studio 可以开发基于 Conflux 区块链上的智能合约。智能合约类似于传统开发流程中的后端服务，它规定一系列链上的交易以完成我们开发中所设定好的功能任务。为了使用户能够方便的调用这些底层服务，避免不必要的门槛和编程的麻烦，我们也还需要编写一个前端应用作为用户界面，这个前端应用以及后端服务组成了一个简单易用的区块链应用，也叫去中心化应用或者 dApp。
 
 你可以前往 [Conflux dApp 开发教程](https://github.com/ObsidianLabs/conflux-dapp-tutorial/blob/master/README-CN.md)学习如何使用 Conflux Studio 完整地开发一款代币 dApp。
-
-
 
 ## 功能预览
 
@@ -44,51 +37,41 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 在正确安装 Conflux Studio 桌面版并初次启动时，你将看到一个欢迎页面，这里有 Conflux Studio 正常运行所需要的依赖，包括了 Docker，Conflux Node 以及 Conflux Truffle。Conflux Studio Web 版无需安装依赖，因此访问 Web 版将直接进入主界面。
 
-
-
 <p align="center">
   <img src="./screenshots/welcome.png" width="720px">
 </p>
 
-
-
 - Conflux Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
-- [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Conflux 节点镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译
+- [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Conflux 节点镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译。
 - [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 版本的 Truffle。Conflux Studio 使用这个工具包进行项目的创建和编译。
 
 当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成蓝色的 *Get Started* 按钮。点击这个按钮进入 Conflux Studio 的主界面。
-
-
 
 ### 密钥管理器
 
 进入主界面后，我们需要首先创建一些密钥对。在 Conflux Studio 的任意界面，点击应用左下⻆的钥匙图标，打开密钥管理器。
 
-
-
 <p align="center">
   <img src="./screenshots/keypairs.png" width="720px">
 </p>
 
-
-密钥管理器会将不同网络下的密钥对进行分类显示，如果需要查看或管理其他网络下的密钥对，点击密钥管理器中间的标签以切换显示本地开发节点 (Local develop networks) 、 测试网 (Testnet) 或者主网 (Tethys Mainnet) 下的密钥对，你也可以点击全部网络 (All) 以显示所有密钥对。
+密钥管理器会将不同网络下的密钥对进行分类显示，如果需要查看或管理其他网络下的密钥对，点击密钥管理器中间的标签以切换显示本地开发节点 (Local develop networks) 、测试网 (Testnet) 或者主网 (Tethys Mainnet) 下的密钥对，你也可以点击全部网络 (All) 以显示所有密钥对。
 
 你可以在密钥管理器中创建，导入并管理密钥对。点击密钥管理器左下角的 *Create* 按钮，根据提示输入密钥对名称并选择网络以新建一个密钥对。密钥对名称是一个由用户自定义的名称，目的是方便在后续的使用中进行识别。Conflux Studio 支持以私钥或助记词的方式生成密钥。生成密钥时，默认以私钥方式生成。如需切换为助记词，请点击 *Regenerate* 按钮旁边的三角箭头切换。
-
-
 
 <p align="center">
   <img src="./screenshots/new_keypair.png" width="720px">
 </p>
 
-
 如需导入密钥，点击密钥管理器左下角的 *Import* 按钮，输入密钥对名称，并在私钥/助记词输入框中输入希望导入的私钥或助记词，Conflux Studio 将根据输入格式自动检测。如果输入的是有效的私钥或助记词，输入框下方将显示对应的地址，确认无误后点击 *Import* 按钮即可完成导入。
+
+<p align="center">
+  <img src="./screenshots/import_keypair.png" width="720px">
+</p>
 
 在继续之前，请先在密钥管理器中创建一些密钥对，以便我们继续接下来的操作步骤。
 
 **注意：私钥和助记词是证明密钥所有权的关键凭证，请妥善保管，不要与他人分享。泄漏私钥或助记词，可能导致数字资产永久丢失。**
-
-
 
 ### 网络管理
 
@@ -100,39 +83,27 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工 (Miner)。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址得到 10,000 CFX 的初始代币。
 
-
-
 <p align="center">
   <img src="./screenshots/new_instance.png" width="720px">
 </p>
 
-
 节点实例创建完成后，点击实例的绿色 *Start* 按钮启动 Conflux 节点。启动完成后，你可以在下方的日志查看器中检查节点运行日志。
-
-
 
 <p align="center">
   <img src="./screenshots/node_log.png" width="720px">
 </p>
 
-
 #### Conflux 测试网/主网
 
 Conflux Studio 中已经内置了 Conflux 主网和测试网的链接信息。点击 *Network* 标签旁的三角箭头，可以直接选择连接或者一键切换希望使用的 Conflux 网络。
-
-
 
 <p align="center">
   <img src="./screenshots/network_selector.png" width="720px">
 </p>
 
-
-
 #### 自定义网络
 
-Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签旁的三角箭头，选择 *Custom Network* 。根据提示输入希望连接的Node URL 信息即可连接。
-
-
+Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签旁的三角箭头，选择 *Custom Network* 。根据提示输入希望连接的 Node URL 信息即可连接。
 
 ### 区块浏览器
 
@@ -140,24 +111,21 @@ Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签
 
 点击 *Explorer* 标签右侧的三角箭头，在下拉菜单中选择希望访问的密钥地址。然后便可以看到对应地址的余额信息了。另外也可以在区块浏览器的地址栏中输入待查看的密钥地址来查看信息。目前 Conflux Studio 暂不支持查看本地开发节点的历史交易记录。将网络切换到测试网或主网，区块浏览器中便可以查看历史交易记录了。
 
-
-
 <p align="center">
   <img src="./screenshots/testkeypair_explorer.png" width="720px">
 </p>
 
-
-当连接主网或者测试网查询信息时，区块浏览器可以显示地址下所有 [Conflux Scan](https://www.confluxscan.io) 已收录的 ERC-20 代币信息（ ERC-20 代币标准与 CRC-20 代币标准可等价互换，本教程中所指的 ERC-20 代币标准实际均指 CRC-20 ）。
-
+当连接主网或者测试网查询信息时，区块浏览器可以显示地址下所有 [Conflux Scan](https://www.confluxscan.io) 已收录的 ERC-20 代币信息（ERC-20 代币标准与 CRC-20 代币标准可等价互换，本教程中所指的 ERC-20 代币标准实际均指 CRC-20）。
 
 <p align="center">
   <img src="./screenshots/crc-20_token_explorer.png" width="720px">
 </p>
 
+Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便用户使用。可以单击地址栏右侧的工具按钮调用相应工具：
 
-Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便用户使用。当连接主网时，可以单击地址栏右侧的 *Transfer* 按钮进行快速转账，该转账功能支持使用账户中任何一种 ERC-20 代币进行交易。单击 *Convert* 按钮可以进行地址转换。当连接测试网时，除了快速转账和地址转换功能外，亦可以通过点击 *Faucet* 按钮申请代币。每次使用 Faucet 功能时，Conflux Studio 会自动申请 1,000 CFX 以及 1,000 cUSDT 两种测试代币。不过 Faucet 所申请的这两种代币均为测试代币，是没有实际货币价值的。
-
-
+- 点击 *Transfer* 按钮以进行快速转账，该转账功能支持使用账户中任何一种 ERC-20 代币进行交易。
+- 点击 *Convert* 按钮以进行地址转换。
+- 当连接测试网时，点击 *Faucet* 按钮可申请测试代币。每次使用 Faucet 功能时，Conflux Studio 会自动申请 1,000 CFX 以及 1,000 cUSDT 两种测试代币。不过 Faucet 所申请的这两种代币均为测试代币，是没有实际货币价值的。
 
 ### 智能合约项目
 
@@ -167,61 +135,53 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 
 - `Coin`：Conflux 实例提供的coin智能合约。
 
-- `Sponsored Coin`:  Conflux 实例提供的coin智能合约。
+- `Sponsored Coin`:  Conflux 实例提供的Sponsored Coin智能合约。
 
-- `[Open Zeppelin]` : 基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20, ERC-721(NFT), ERC-777, 和 ERC-1155 等合约。
+- `[Open Zeppelin]` : 基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、 ERC-721(NFT)、 ERC-777 和 ERC-1155 等合约。
 
 - `[Truffle] Metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点。
-
-  
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
 </p>
 
-
 #### 项目编辑器
 
 项目创建完成后，主页面将切换至项目编辑器。项目编辑器由几个部分组成，包括了左侧的文件浏览器，文件浏览器上方的工具栏，右侧上半部分的代码编辑器以及右侧下半部分的日志查看器等多个开发常用模块。
-
-
 
 <p align="center">
   <img src="./screenshots/editor.png" width="720px">
 </p>
 
-
-
 点击工具栏中右侧的 *Project Settings* （齿轮形状）图标，打开项目设置标签页。在这里可以查看和修改项目的基本配置，编译器配置以及 Linter 配置等信息。
-
-
 
 <p align="center">
   <img src="./screenshots/proj_settings.png" width="720px">
 </p>
+Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程中自动检查代码并提示项目代码中的警告和错误。 项目编辑器会在有警告的代码行前标注黄色的惊叹号，在错误的代码行前标注红色的叉作为提示。
 
+<p align="center">
+  <img src="./screenshots/warning_error.png" width="720px">
+</p>
 
+#### 编译智能合约
 
-Conflux Studio 的项目编辑器内置了 Linter ，可以自动提示项目代码中的错误。 Conflux Studio会在错误的代码行前标注红色的 × 作为提示。
-
-
-
-### 编译智能合约
-
-点击工具栏的 *Build* 按钮（锤子形状），Conflux Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下的 `build/contracts` 文件夹中查看到编译完成的 `json` 文件，JSON 文件的数据接口可参阅 [solc文档](https://docs.soliditylang.org/en/latest/using-the-compiler.html#output-description) 。
+点击工具栏的 *Build* 按钮（锤子形状），Conflux Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下的 `build/contracts` 文件夹中查看到编译完成的 `json` 文件，JSON 文件的数据接口可参阅 [solc 文档](https://docs.soliditylang.org/en/latest/using-the-compiler.html#output-description)。
 
 <p align="center">
   <img src="./screenshots/compile.png" width="720px">
 </p>
 
-### 部署智能合约
+另外也可以通过右键点击 `sol` 文件，在下拉菜单中选择 *Compile* 单独编译选中的合约文件。
+
+#### 部署智能合约
 
 点击工具栏的 *Deploy* 按钮（船形状），部署参数窗口将被打开，在这里可以输入部署合约所需要的各项参数：
 
-- `Contract ABI` 等待部署的 ABI 文件。ABI文件中规定了合约支持的方法，一个项目内可能存在多个 ABI 文件，可以通过右侧的三角箭头从下拉菜单中选择需要部署的 ABI 。
-- `Constructor Parameters` 构造函数需要的参数。 可以在此填入合约中规定构造函数所需要的各项参数。
-- `Signer` 交易签名使用的密钥地址。通过右侧的三角箭头从下拉菜单中选择需要使用的密钥地址。
-- `Gas Limit` `Gas Price` `Storage Limit` 为交易费用信息。此处可以留空， Conflux Studio 会代为自动估算。
+- Contract ABI 是等待部署的 ABI 文件。ABI文件中规定了合约支持的方法，一个项目内可能存在多个 ABI 文件，可以通过右侧的三角箭头从下拉菜单中选择需要部署的 ABI 。
+- Constructor Parameters 构造函数需要的参数。 可以在此填入合约中规定构造函数所需要的各项参数。
+- Signer 交易签名使用的密钥地址。通过右侧的三角箭头从下拉菜单中选择需要使用的密钥地址。
+- Gas Limit、 Gas Price、 Storage Limit 为交易费用信息。此处可以留空， Conflux Studio 会代为自动估算。
 
 另外也可以通过右键点击你所需要部署的`json`文件，在下拉菜单中选择 *Deploy* ，对该合约进行部署。 
 
@@ -229,22 +189,17 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以自动提示项目代
   <img src="./screenshots/deploy_parameters.png" width="720px">
 </p>
 
-
-
 点击 *Estimate & Deploy* ，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮 Conflux Studio 将执行项目部署。稍后 Conflux Studio 会显示部署结果与交易详情信息。
 
-如需查看部署参数，交易收据，ABI等详细信息，可点击界面上的标签栏进行切换。
-
-
+如需查看部署参数 (Parameters) 、交易数据 (Tx)、交易收据 (Receipt)、ABI等详细信息，可点击界面上的标签栏进行切换。
 
 <p align="center">
   <img src="./screenshots/deploy.png" width="720px">
 </p>
 
-
 ### 调用合约
 
-成功部署智能合约后，点击弹窗中 `Contract Created` 栏的合约地址，页面将自动切换至合约浏览器。你也直接可以点击顶部的 *Contract* 标签切换至合约浏览器，在地址栏中输入希望打开的合约地址。Conflux Studio 支持同时打开多个合约，方便进行多合约的调试工作。
+成功部署智能合约后，点击弹窗中 Contract Created 栏的合约地址，页面将自动切换至合约浏览器。你也直接可以点击顶部的 *Contract* 标签切换至合约浏览器，也可以在地址栏中直接输入希望打开的合约地址。Conflux Studio 支持同时打开多个合约，方便进行多合约的调试工作。
 
 合约浏览器页面主要分为三个部分：
 
@@ -252,15 +207,11 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以自动提示项目代
 - 中间为合约的数据读取窗口，点击中间部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
 - 右边为合约的事件查询窗口，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的可查询的事件名称，点击类型名称可查询不同的事件记录。
 
-Conflux Studio 在部署合约后将自动保存合约 ABI , 并在读取合约时候读取 ABI 中的数据，用于生成上面的写入方法，数据读取和事件查询参数表单，关于更多 ABI 的使用方法可以参考 [ABI Storage](#abi-storage)。
-
-
-
 <p align="center">
   <img src="./screenshots/contract.png" width="720px">
 </p>
 
-
+Conflux Studio 在部署合约后将自动保存合约 ABI ， 并在读取合约时候通过 ABI 中的数据，生成上面的写入方法，数据读取和事件查询参数表单。关于更多 ABI 的使用方法可以参考 [ABI Storage](#abi-storage)。
 
 接下来我们在合约浏览器中打开刚刚部署的 `GLDToken` 合约，演示如何使用写入方法、读取数据、和查询事件。
 
@@ -273,9 +224,20 @@ Conflux Studio 在部署合约后将自动保存合约 ABI , 并在读取合约�
 </p>
 在进行事件查询时， Conflux Studio 允许自定义查询范围。但时间查询最多只能返回 10,000 条记录，请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。
 
-#### ABI Storage
+#### ABI storage
 
+在使用合约浏览器时，Conflux Studio 需要基于合约 ABI 生成各读写方法和查询事件的界面，底部栏中的 ABI Storage 就是保存这些合约 ABI 的地方。在合约部署成功后，Conflux Studio 将自动保存合约的 ABI。有些情况，如果需要调用其它合约（例如线上合约），就需要将合约的 ABI 添加到 ABI Storage 中。使用 ABI Storage 中的 New 按钮即可完成该操作。
 
+<p align="center">
+  <img src="./screenshots/new_abi.png" width="720px">
+</p>
+
+为方便使用，Conflux Studio 也会自动读取当前项目中，已编译过合约的 ABI，从 Enter New ABI 弹窗左下角的按钮中即可选择。
 
 #### RPC Client
 
+Conflux Studio 还提供了直接从底层调用 Conflux 节点 RPC 接口的功能。点击底部栏的网络按钮，在弹出菜单中选择并打开 RPC Client 后，可以看到 Conflux 节点的全部 RPC 接口。对每个 RPC 接口，Conflux Studio 也将生成对应的参数表格，填写数据后点击运行按钮，即可完成调用并查看返回数据。
+
+<p align="center">
+  <img src="./screenshots/rpc_client.png" width="720px">
+</p>
