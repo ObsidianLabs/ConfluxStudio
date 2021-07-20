@@ -133,13 +133,13 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 
 点击顶部的 *Project* 标签，主页面将切换至项目管理器。点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Conflux Studio 目前提供了多种模版：
 
-- `Coin`：Conflux 实例提供的coin智能合约。
+- `Coin`：Conflux 实例提供的 Coin 智能合约。
 
-- `Sponsored Coin`：Conflux 实例提供的Sponsored Coin智能合约。
+- `Sponsored Coin`：Conflux 实例提供的 Sponsored Coin 智能合约。
 
 - `[Open Zeppelin]`：基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、 ERC-721（NFT）、 ERC-777 和 ERC-1155 等合约。
 
-- `[Truffle] Metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点。
+- `[Truffle] Metacoin`：使用 Conflux Truffle 创建的合约；该项目目前无法部署到 Conflux 节点。
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
