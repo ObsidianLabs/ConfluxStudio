@@ -12,7 +12,7 @@ Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnet
 
 ### Conflux Studio 桌面版
 
-Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 桌面版支持 macOS、Linux 和 Windows 系统，请根据系统下载对应的版本 (macOS 下载 `.dmg` 或者 `.zip`，Linux 下载 `.AppImage`， Windows 下载 `.exe`)。
+Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 桌面版支持 macOS、Linux 和 Windows 系统，请根据系统下载对应的版本 （macOS 下载 `.dmg` 或者 `.zip`，Linux 下载 `.AppImage`， Windows 下载 `.exe`）。
 
 - **macOS**: 双击打开 `ConfluxStudio-x.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
   - 第一次运行 Conflux Studio 时，可能会收到系统 *”无法打开 "Conflux Studio"，因为 Apple 无法检查其是否包含恶意软件“* 的提示。此时请打开 *“系统偏好设置”* ，前往 *“安全性与隐私”* 。点按 *“通用”* 面板中 *“仍要打开”* 按钮以允许 Conflux Studio 运行。
@@ -55,7 +55,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
   <img src="./screenshots/keypairs.png" width="720px">
 </p>
 
-密钥管理器会将不同网络下的密钥对进行分类显示，如果需要查看或管理其他网络下的密钥对，点击密钥管理器中间的标签以切换显示本地开发节点 (Local develop networks) 、测试网 (Testnet) 或者主网 (Tethys Mainnet) 下的密钥对，你也可以点击全部网络 (All) 以显示所有密钥对。
+密钥管理器会将不同网络下的密钥对进行分类显示，如果需要查看或管理其他网络下的密钥对，点击密钥管理器中间的标签以切换显示本地开发节点 （Local develop networks） 、测试网 （Testnet） 或者主网 （Tethys Mainnet） 下的密钥对，你也可以点击全部网络 （All） 以显示所有密钥对。
 
 你可以在密钥管理器中创建，导入并管理密钥对。点击密钥管理器左下角的 *Create* 按钮，根据提示输入密钥对名称并选择网络以新建一个密钥对。密钥对名称是一个由用户自定义的名称，目的是方便在后续的使用中进行识别。Conflux Studio 支持以私钥或助记词的方式生成密钥。生成密钥时，默认以私钥方式生成。如需切换为助记词，请点击 *Regenerate* 按钮旁边的三角箭头切换。
 
@@ -81,7 +81,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 点击主页面中右上角的 *New Instance* 按钮打开创建新实例的弹窗，填写实例名称和选择合适的版本，点击 *Create* 按钮完成节点实例的创建。
 
-创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工 (Miner)。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址得到 10,000 CFX 的初始代币。
+创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工 （Miner）。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址得到 10,000 CFX 的初始代币。
 
 <p align="center">
   <img src="./screenshots/new_instance.png" width="720px">
@@ -137,7 +137,7 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 
 - `Sponsored Coin`:  Conflux 实例提供的Sponsored Coin智能合约。
 
-- `[Open Zeppelin]` : 基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、 ERC-721(NFT)、 ERC-777 和 ERC-1155 等合约。
+- `[Open Zeppelin]` : 基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、 ERC-721（NFT）、 ERC-777 和 ERC-1155 等合约。
 
 - `[Truffle] Metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点。
 
@@ -191,7 +191,7 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程
 
 点击 *Estimate & Deploy* ，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮 Conflux Studio 将执行项目部署。稍后 Conflux Studio 会显示部署结果与交易详情信息。
 
-如需查看部署参数 (Parameters) 、交易数据 (Tx)、交易收据 (Receipt)、ABI等详细信息，可点击界面上的标签栏进行切换。
+如需查看部署参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）、ABI等详细信息，可点击界面上的标签栏进行切换。
 
 <p align="center">
   <img src="./screenshots/deploy.png" width="720px">
