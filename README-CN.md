@@ -178,7 +178,7 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程
 
 点击工具栏的 *Deploy* 按钮（船形状），部署参数窗口将被打开，在这里可以输入部署合约所需要的各项参数：
 
-- Contract ABI 是等待部署的 ABI 文件。ABI文件中规定了合约支持的方法，一个项目内可能存在多个 ABI 文件，可以通过右侧的三角箭头从下拉菜单中选择需要部署的 ABI 。
+- Contract ABI 是等待部署的 ABI 文件。ABI 文件中规定了合约支持的方法，一个项目内可能存在多个 ABI 文件，可以通过右侧的三角箭头从下拉菜单中选择需要部署的 ABI 。
 - Constructor Parameters 构造函数需要的参数。 可以在此填入合约中规定构造函数所需要的各项参数。
 - Signer 交易签名使用的密钥地址。通过右侧的三角箭头从下拉菜单中选择需要使用的密钥地址。
 - Gas Limit、 Gas Price、 Storage Limit 为交易费用信息。此处可以留空， Conflux Studio 会代为自动估算。
@@ -191,7 +191,7 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程
 
 点击 *Estimate & Deploy* ，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮 Conflux Studio 将执行项目部署。稍后 Conflux Studio 会显示部署结果与交易详情信息。
 
-如需查看部署参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）、ABI等详细信息，可点击界面上的标签栏进行切换。
+如需查看部署参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）、ABI等详细信息，可点击界面上的标签栏进行切换。若之后仍想查看本次部署结果和交易详情信息，请参考 [链上交易记录](#链上交易记录)。
 
 <p align="center">
   <img src="./screenshots/deploy.png" width="720px">
@@ -211,32 +211,59 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程
   <img src="./screenshots/contract.png" width="720px">
 </p>
 
-Conflux Studio 在部署合约后将自动保存合约 ABI ， 并在读取合约时候通过 ABI 中的数据，生成上面的写入方法，数据读取和事件查询参数表单。关于更多 ABI 的使用方法可以参考 [ABI Storage](#abi-storage)。
+Conflux Studio 在部署合约后将自动保存合约 ABI ， 并在读取合约时候通过 ABI 中的数据，生成上面的写入方法，数据读取和事件查询参数表单。更多 ABI 的使用方法可以参考 [ABI Storage](#abi-storage)。
 
-接下来我们在合约浏览器中打开刚刚部署的 `GLDToken` 合约，演示如何使用写入方法、读取数据、和查询事件。
+接下来我们在合约浏览器中打开刚刚部署的 `GLDToken` 合约，演示如何使用写入方法、读取数据和查询事件。
 
-首先选择 *approve* 方法，在 *Parameters* 下填入 *receiver* 地址（可以从密钥管理器中复制）和在 *amount* 中填入合适的数量，在 *Authorization* 中填入创世地址，点击上方的执行按钮。完成交易后，我们可以在左下角的 *Result* 中看到成功执行的结果。此时我们已经创建了新的 *coin*。
+首先在写入方法调用窗口中选择 *approve* 方法，这个方法可以批准合约地址一定的消费额度，用于之后的交易。然后填入完成交易必须的各项参数：
 
-在右边的 *balance* 表中，在 Parameters 下输入刚刚填入的 *receiver* 地址，点击执行按钮，便可以看到刚刚 *mint* 的总数了。
+- 在 Parameters 下填入 spender 地址（可以从密钥管理器双击复制），并在 amount 中填入合适的数量。
+- 无需填写 Gas & Storage 栏目中的交易费用（由 Conflux Studio 自动估算），
+- 在 Authorization 的下拉菜单中选择创世地址。
+
+完成后，点击上方的方法名称旁的 *Execute* 按钮（三角形状）执行交易。稍后弹窗会提示交易成功及交易费用信息。
 
 <p align="center">
-  <img src="./screenshots/mint.png" width="720px">
+  <img src="./screenshots/approve_succeed.png" width="720px">
 </p>
-在进行事件查询时， Conflux Studio 允许自定义查询范围。但时间查询最多只能返回 10,000 条记录，请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。
 
-#### ABI storage
+接下来，我们来验证一下上笔交易的结果。在合约读取窗口中选择 *allowance* 数据栏，在 Parameters 下填入 owner 地址和 spender 地址，最后点击上方的数据名称旁的 *Execute* 按钮（三角形状）。结果会显示在下方 Result 栏目中，这个结果与我们上笔交易中 *approve* 的 amount 数量一致，这验证了我们之前交易的结果。
 
-在使用合约浏览器时，Conflux Studio 需要基于合约 ABI 生成各读写方法和查询事件的界面，底部栏中的 ABI Storage 就是保存这些合约 ABI 的地方。在合约部署成功后，Conflux Studio 将自动保存合约的 ABI。有些情况，如果需要调用其它合约（例如线上合约），就需要将合约的 ABI 添加到 ABI Storage 中。使用 ABI Storage 中的 New 按钮即可完成该操作。
+<p align="center">
+  <img src="./screenshots/allowance_result.png" width="720px">
+</p>
+
+最后我们在事件查询窗口中选择 *Approval* 事件，并点击 *Execute* 按钮（三角形状）以查询合约中所有 *Approval* 相关事件，结果会显示在下方 Event Logs 窗口中。在进行事件查询时， Conflux Studio 允许自定义查询范围。但事件查询最多只能返回 10,000 条记录，请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。
+
+<p align="center">
+  <img src="./screenshots/approval_eventlog.png" width="720px">
+</p>
+
+#### ABI Storage
+
+在使用合约浏览器时，Conflux Studio 需要基于合约 ABI 生成各读写方法和查询事件的界面，底部栏中的 ABI Storage 就是保存这些合约 ABI 的地方。在合约部署成功后，Conflux Studio 将自动保存合约的 ABI。当鼠标移动到 ABI 条目上时，可以点击右侧 *Edit* 按钮（铅笔形状）查看 ABI 文件的原始数据，也可以点击 *Delete* 按钮（垃圾桶形状）删除 ABI 文件条目。
+
+<p align="center">
+  <img src="./screenshots/abi.png" width="720px">
+</p>
+
+有些情况，如果需要调用其它合约（例如线上合约），就需要将合约的 ABI 添加到 ABI Storage 中。使用 ABI Storage 中的 *New* 按钮即可完成该操作。为方便使用，Conflux Studio 也会自动读取当前项目中已编译过合约的 ABI，单击弹窗左下角 *Select from the current project* 按钮，从列表中选择即可。
 
 <p align="center">
   <img src="./screenshots/new_abi.png" width="720px">
 </p>
 
-为方便使用，Conflux Studio 也会自动读取当前项目中，已编译过合约的 ABI，从 Enter New ABI 弹窗左下角的按钮中即可选择。
+#### 链上交易记录
+
+Conflux Studio 会记录每笔在链上的交易。如需查看最近的交易记录，点击底部栏的 *Transactions* 按钮即可唤出最近交易记录的列表。可以点击单笔交易以打开交易确认弹窗，并查看交易详情、参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）和 ABI 等详细信息。
+
+<p align="center">
+  <img src="./screenshots/transactions.png" width="720px">
+</p>
 
 #### RPC Client
 
-Conflux Studio 还提供了直接从底层调用 Conflux 节点 RPC 接口的功能。点击底部栏的网络按钮，在弹出菜单中选择并打开 RPC Client 后，可以看到 Conflux 节点的全部 RPC 接口。对每个 RPC 接口，Conflux Studio 也将生成对应的参数表格，填写数据后点击运行按钮，即可完成调用并查看返回数据。
+Conflux Studio 还提供了直接从底层调用 Conflux 节点 RPC 接口的功能。点击底部栏的网络按钮，在弹出菜单中选择并打开 RPC Client 后，可以看到 Conflux 节点的全部 RPC 接口。对每个 RPC 接口，Conflux Studio 也将生成对应的参数表格，填写数据后点击 *Execute* 按钮 (三角形状) 运行，即可完成调用并查看返回数据。
 
 <p align="center">
   <img src="./screenshots/rpc_client.png" width="720px">
