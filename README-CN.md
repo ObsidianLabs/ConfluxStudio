@@ -15,7 +15,7 @@ Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnet
 Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 桌面版支持 macOS、Linux 和 Windows 系统，请根据系统下载对应的版本 （macOS 下载 `.dmg` 或者 `.zip`，Linux 下载 `.AppImage`， Windows 下载 `.exe`）。
 
 - **macOS**: 双击打开 `ConfluxStudio-x.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
-  - 第一次运行 Conflux Studio 时，可能会收到系统 *”无法打开 "Conflux Studio"，因为 Apple 无法检查其是否包含恶意软件“* 的提示。此时请打开 *“系统偏好设置”* ，前往 *“安全性与隐私”* 。点按 *“通用”* 面板中 *“仍要打开”* 按钮以允许 Conflux Studio 运行。
+  - 第一次运行 Conflux Studio 时，可能会收到系统 *”无法打开 "Conflux Studio"，因为 Apple 无法检查其是否包含恶意软件“* 的提示。此时请打开 *系统偏好设置* ，前往 *安全性与隐私* 。点按 *通用* 面板中 *仍要打开* 按钮以允许 Conflux Studio 运行。
 - **Linux**: 双击打开 `ConfluxStudio-x.x.x.AppImage`， 选择 *Properties* => *Permissions* => *Execute*， 将 *Allow executing file as program* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
 - **Windows**:  双击打开 `ConfluxStudio-x.x.x.exe`。
 
@@ -25,7 +25,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ## Conflux dApp 开发示例教程
 
-通过 Conflux Studio 可以开发基于 Conflux 区块链上的智能合约。智能合约类似于传统开发流程中的后端服务，它规定一系列链上的交易以完成我们开发中所设定好的功能任务。为了使用户能够方便的调用这些底层服务，避免不必要的门槛和编程的麻烦，我们也还需要编写一个前端应用作为用户界面，这个前端应用以及后端服务组成了一个简单易用的区块链应用，也叫去中心化应用或者 dApp。
+通过 Conflux Studio 可以开发基于 Conflux 区块链上的智能合约。智能合约类似于传统开发流程中的后端服务，它规定一系列链上的交易以完成我们开发中所设定好的功能任务。为了使用户能够方便的调用这些底层服务，避免不必要的门槛和编程的麻烦，我们也还需要编写一个前端应用作为用户界面。这个前端应用以及后端服务组成了一个简单易用的区块链应用，也叫去中心化应用或者 dApp。
 
 你可以前往 [Conflux dApp 开发教程](https://github.com/ObsidianLabs/conflux-dapp-tutorial/blob/master/README-CN.md)学习如何使用 Conflux Studio 完整地开发一款代币 dApp。
 
@@ -35,7 +35,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ### 准备工作 
 
-在正确安装 Conflux Studio 桌面版并初次启动时，你将看到一个欢迎页面，这里有 Conflux Studio 正常运行所需要的依赖，包括了 Docker，Conflux Node 以及 Conflux Truffle。Conflux Studio Web 版无需安装依赖，因此访问 Web 版将直接进入主界面。
+在正确安装 Conflux Studio 桌面版并初次启动时，你将看到一个欢迎页面，同时也是环境准备界面。这里列出了 Conflux Studio 正常运行所需要的依赖，包括了 Docker，Conflux Node 以及 Conflux Truffle。因为 Conflux Studio Web 版无需安装依赖，所以访问 Web 版将直接进入主界面。
 
 <p align="center">
   <img src="./screenshots/welcome.png" width="720px">
@@ -43,7 +43,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 - Conflux Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Conflux 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
 - [**Conflux Node**](https://github.com/Conflux-Chain/conflux-rust) 是 Conflux 官方提供的 Conflux 节点镜像，Conflux Studio 使用这个镜像来运行 Conflux 节点以及项目编译。
-- [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 版本的 Truffle。Conflux Studio 使用这个工具包进行项目的创建和编译。
+- [**Conflux Truffle**](https://github.com/Conflux-Chain/conflux-truffle) 是 Conflux 版本的 Truffle。 Conflux Studio 使用这个工具包进行项目的创建和编译。
 
 当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成蓝色的 *Get Started* 按钮。点击这个按钮进入 Conflux Studio 的主界面。
 
@@ -81,7 +81,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 点击主页面中右上角的 *New Instance* 按钮打开创建新实例的弹窗，填写实例名称和选择合适的版本，点击 *Create* 按钮完成节点实例的创建。
 
-创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工 （Miner）。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址得到 10,000 CFX 的初始代币。
+创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工 （Miner）。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址会因此得到 10,000 CFX 的初始代币。
 
 <p align="center">
   <img src="./screenshots/new_instance.png" width="720px">
@@ -135,9 +135,9 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 
 - `Coin`：Conflux 实例提供的coin智能合约。
 
-- `Sponsored Coin`:  Conflux 实例提供的Sponsored Coin智能合约。
+- `Sponsored Coin`：Conflux 实例提供的Sponsored Coin智能合约。
 
-- `[Open Zeppelin]` : 基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、 ERC-721（NFT）、 ERC-777 和 ERC-1155 等合约。
+- `[Open Zeppelin]`：基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、 ERC-721（NFT）、 ERC-777 和 ERC-1155 等合约。
 
 - `[Truffle] Metacoin`：使用Conflux Truffle创建的合约；该项目目前无法部署到 Conflux 节点。
 
@@ -158,6 +158,7 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 <p align="center">
   <img src="./screenshots/proj_settings.png" width="720px">
 </p>
+
 Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程中自动检查代码并提示项目代码中的警告和错误。 项目编辑器会在有警告的代码行前标注黄色的惊叹号，在错误的代码行前标注红色的叉作为提示。
 
 <p align="center">
@@ -189,9 +190,9 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程
   <img src="./screenshots/deploy_parameters.png" width="720px">
 </p>
 
-点击 *Estimate & Deploy* ，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮 Conflux Studio 将执行项目部署。稍后 Conflux Studio 会显示部署结果与交易详情信息。
+点击 *Estimate & Deploy* 按钮，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮 Conflux Studio 将执行项目部署。稍后 Conflux Studio 会显示部署结果与交易详情信息。
 
-如需查看部署参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）、ABI等详细信息，可点击界面上的标签栏进行切换。若之后仍想查看本次部署结果和交易详情信息，请参考 [链上交易记录](#链上交易记录)。
+如需查看部署参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）、ABI等详细信息，可点击界面上的标签栏进行切换。若在本弹窗关闭之后仍想查看本次部署结果和交易详情信息，请参考 [链上交易记录](#链上交易记录)。
 
 <p align="center">
   <img src="./screenshots/deploy.png" width="720px">
@@ -204,8 +205,8 @@ Conflux Studio 的项目编辑器内置了 Linter ，可以在代码编辑过程
 合约浏览器页面主要分为三个部分：
 
 - 左边为合约的写入方法调用窗口，点击左半部分的左上角蓝色按钮弹出的下拉框显示当前合约所定义的方法，点击方法名称可以切换调用的方法。
-- 中间为合约的数据读取窗口，点击中间部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击表名称可以切换查看不同表中的数据。
-- 右边为合约的事件查询窗口，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的可查询的事件名称，点击类型名称可查询不同的事件记录。
+- 中间为合约的数据读取窗口，点击中间部分的左上角蓝色按钮弹出的下拉框显示当前合约的数据表，点击数据名称可以切换查看不同表中的数据。
+- 右边为合约的事件查询窗口，点击右半部分的左上角蓝色按钮弹出的下拉框显示当前合约的可查询的事件名称，点击事件名称可查询不同的事件记录。
 
 <p align="center">
   <img src="./screenshots/contract.png" width="720px">
@@ -215,7 +216,7 @@ Conflux Studio 在部署合约后将自动保存合约 ABI ， 并在读取合�
 
 接下来我们在合约浏览器中打开刚刚部署的 `GLDToken` 合约，演示如何使用写入方法、读取数据和查询事件。
 
-首先在写入方法调用窗口中选择 *approve* 方法，这个方法可以批准合约地址一定的消费额度，用于之后的交易。然后填入完成交易必须的各项参数：
+首先在写入方法调用窗口中选择 *approve* 方法，这个方法可以批准合约地址一定的消费额度，用于之后的交易。接下来填入完成交易必须的各项参数：
 
 - 在 Parameters 下填入 spender 地址（可以从密钥管理器双击复制），并在 amount 中填入合适的数量。
 - 无需填写 Gas & Storage 栏目中的交易费用（由 Conflux Studio 自动估算），
