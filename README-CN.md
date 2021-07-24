@@ -124,10 +124,10 @@ Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签
 Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便用户使用，可以单击按钮调用相应工具：
 
 - 点击 *Transfer* 按钮以进行快速转账，该转账功能支持使用 CFX 或其拥有的 ERC-20 代币进行交易。在转账弹窗中选择需要转账代币，填写参数后点击 *Sign and Push* 以执行交易。每笔转账交易都会在[历史交易记录](#历史交易记录)中以便之后再次查看。
+
 <p align="center">
   <img src="./screenshots/transfer.png" width="720px">
 </p>
-
 
 - 点击 *Convert* 按钮以进行地址格式转换。
 - 当连接测试网时，点击 *Faucet* 按钮可申请测试代币。每次使用 Faucet 功能时，Conflux Studio 会自动申请 1,000 CFX 以及 1,000 cUSDT 两种测试代币。不过，测试网上所申请的这两种代币均为测试代币，是没有实际价值的。
