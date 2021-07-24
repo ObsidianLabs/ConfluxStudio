@@ -123,10 +123,11 @@ Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签
 
 Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便用户使用，可以单击按钮调用相应工具：
 
-- 点击 *Transfer* 按钮以进行快速转账，该转账功能支持使用 CFX 或其拥有的 ERC-20 代币进行交易。（这里加一个打开tranfer弹窗的截图，这个功能比较常用可以展示一下，我加了一个图做placeholder。然后说一下这个交易发送后会添加到[历史交易记录](#历史交易记录)中以便之后查看）
+- 点击 *Transfer* 按钮以进行快速转账，该转账功能支持使用 CFX 或其拥有的 ERC-20 代币进行交易。在转账弹窗中选择需要转账代币，填写参数后点击 *Sign and Push* 以执行交易。每笔转账交易都会在[历史交易记录](#历史交易记录)中以便之后再次查看。
 <p align="center">
-  <img src="./screenshots/crc-20_token_explorer.png" width="720px">
+  <img src="./screenshots/transfer.png" width="720px">
 </p>
+
 
 - 点击 *Convert* 按钮以进行地址格式转换。
 - 当连接测试网时，点击 *Faucet* 按钮可申请测试代币。每次使用 Faucet 功能时，Conflux Studio 会自动申请 1,000 CFX 以及 1,000 cUSDT 两种测试代币。不过，测试网上所申请的这两种代币均为测试代币，是没有实际价值的。
@@ -144,13 +145,12 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 - `[Open Zeppelin]`：基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、ERC-721（NFT）、ERC-777 和 ERC-1155 等合约。
 
 - `[Truffle] Metacoin`：使用 Conflux Truffle 创建的合约；该项目目前无法部署到 Conflux 节点。
-（为什么无法部署？）
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
 </p>
 
-（说一下这里我们使用open zeppelins的basics模版创建项目，并使用这个项目完成后续操作）
+这里我们使用 Open Zeppelin 的 Basics 模版创建一个名为 `my-project` 的项目，并使用这个项目完成后续操作。
 
 #### 项目编辑器
 
@@ -197,7 +197,7 @@ Conflux Studio 的项目编辑器内置了 Linter，可以在代码编辑过程�
   <img src="./screenshots/deploy_parameters.png" width="720px">
 </p>
 
-（说一下我们选择 `GLDToken.json`）填写构造函数参数，并选择签名密钥地址后，点击 *Estimate & Deploy* 按钮，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮，Conflux Studio 将发送合约部署交易。
+现在右键点击 `GLDToken.json` ，选择 *Compile* 以调出部署弹窗。在弹窗中填写构造函数参数，并选择签名密钥地址后，点击 *Estimate & Deploy* 按钮，Conflux Studio 会自动估算所需的交易费用并填入对应栏目中。如需重新估算，请点击左侧绿色 *Re-estimate* 按钮。有时候预估的交易费用可能是不够的，如果部署的时候出现交易费用不足的错误，可以手动提高交易费用后重试。点击蓝色 *Deploy* 按钮，Conflux Studio 将发送合约部署交易。
 
 部署交易需要一些时间被区块链网络处理。大约十几秒后，Conflux Studio 会弹出交易详情弹窗显示部署结果，包括部署参数（Parameters）、交易数据（Tx）、交易收据（Receipt）、ABI 等详细信息，可点击弹窗中的标签进行切换。若在本弹窗关闭之后仍想查看本次部署结果和交易详情信息，请参考[历史交易记录](#历史交易记录)。
 
@@ -241,7 +241,7 @@ Conflux Studio 在部署合约后将自动保存合约 ABI，并在读取合约�
   <img src="./screenshots/allowance_result.png" width="720px">
 </p>
 
-最后我们在事件查询窗口中选择 *Approval* 事件（这里介绍 Tranferred），并点击 *Execute* 按钮（三角形状）以查询合约中所有 *Approval* 相关事件，结果会显示在下方 Event Logs 窗口中。在进行事件查询时， Conflux Studio 允许自定义查询范围。但事件查询最多只能返回 10,000 条记录（对于本地网络或测试网是10000，主网是1000），请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。
+最后我们在事件查询窗口中选择 *Approval* 事件（这里介绍 Tranferred），并点击 *Execute* 按钮（三角形状）以查询合约中所有 *Approval* 相关事件，结果会显示在下方 Event Logs 窗口中。在进行事件查询时， Conflux Studio 允许自定义查询范围。但当连接本地开发节点或者测试网时，事件查询最多只能返回 10,000 条记录，请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。当连接 Conflux 主网时，事件查询最多只能返回 1,000 条记录。
 
 <p align="center">
   <img src="./screenshots/approval_eventlog.png" width="720px">
@@ -263,8 +263,7 @@ Conflux Studio 在部署合约后将自动保存合约 ABI，并在读取合约�
 
 #### 历史交易记录
 
-Conflux Studio 会记录每笔在链上的交易。如需查看最近的交易记录，点击底部栏的 *Transactions* 按钮即可唤出最近交易记录的列表。可以点击单笔交易以打开交易详情弹窗，查看参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）等详细信息。
-
+Conflux Studio 会记录每笔发布到链上的交易。如需查看最近的交易记录，点击底部栏的 *Transactions* 按钮即可唤出最近交易记录的列表。可以点击单笔交易以打开交易确认弹窗，并查看交易详情、参数 （Parameters） 、交易数据 （Tx）、交易收据 （Receipt）和 ABI 等详细信息。
 <p align="center">
   <img src="./screenshots/transactions.png" width="720px">
 </p>
