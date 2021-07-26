@@ -124,10 +124,10 @@ Conflux Studio 支持连接自定义远程网络节点。点击 *Network* 标签
 Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便用户使用，可以单击按钮调用相应工具：
 
 - 点击 *Transfer* 按钮以进行快速转账，该转账功能支持使用 CFX 或其拥有的 ERC-20 代币进行交易。在转账弹窗中选择需要转账代币，填写参数后点击 *Sign and Push* 以执行交易。每笔转账交易都会在[历史交易记录](#历史交易记录)中以便之后再次查看。
+
 <p align="center">
   <img src="./screenshots/transfer.png" width="720px">
 </p>
-
 
 - 点击 *Convert* 按钮以进行地址格式转换。
 - 当连接测试网时，点击 *Faucet* 按钮可申请测试代币。每次使用 Faucet 功能时，Conflux Studio 会自动申请 1,000 CFX 以及 1,000 cUSDT 两种测试代币。不过，测试网上所申请的这两种代币均为测试代币，是没有实际价值的。
@@ -223,28 +223,29 @@ Conflux Studio 在部署合约后将自动保存合约 ABI，并在读取合约�
 
 接下来我们在合约浏览器中打开刚刚部署的 `GLDToken` 合约，演示如何使用写入方法、读取数据和查询事件。
 
-首先在写入方法调用窗口中选择 *approve* （演示 tranfer 方法吧，这个最常用，但是现在写的这些先都留好，在我们的eth文档中可以用到，包括限免的allowance和approval事件）方法，这个方法可以批准合约地址一定的消费额度，用于之后的交易。接下来填入完成交易必须的各项参数：
+首先在写入方法调用窗口中选择 *transfer* 方法，这个方法将指定数量的代币从一个地址转账到另外一个地址。接下来填入完成交易必须的各项参数：
 
-- 在 Parameters 下填入 spender 地址（可以从密钥管理器双击复制），并在 amount 中填入合适的数量。
+- 在 Parameters 下从 recipient 下拉菜单中选择 my-keypair-2 作为收款人地址（可以从密钥管理器双击复制），并在 amount 中填入合适的数量。
 - 无需填写 Gas & Storage 栏目中的交易费用（由 Conflux Studio 自动估算），
-- 在 Authorization 的下拉菜单中选择创世地址。
+- 在 Authorization 的 Signer 下拉菜单中选择 my-keypair-1 创世地址，在本例中我们用创世地址作为汇款人地址。
 
 完成后，点击上方的方法名称旁的 *Execute* 按钮（三角形状）执行交易。稍后弹窗会提示交易成功及交易费用信息。
 
 <p align="center">
-  <img src="./screenshots/approve_succeed.png" width="720px">
+  <img src="./screenshots/transfer.png" width="720px">
 </p>
 
-接下来，我们来验证一下上笔交易的结果。在合约读取窗口中选择 *allowance* （这里介绍 balanceOf）数据栏，在 Parameters 下填入 owner 地址和 spender 地址，最后点击上方的数据名称旁的 *Execute* 按钮（三角形状）。结果会显示在下方 Result 栏目中，这个结果与我们上笔交易中 *approve* 的 amount 数量一致，这验证了我们之前交易的结果。
+
+接下来，我们来验证一下上笔交易的结果。在合约读取窗口中选择 *balanceOf* 数据栏，在 Parameters 下 account 下拉菜单中选择 my-keypair-2 地址，最后点击上方的数据名称旁的 *Execute* 按钮（三角形状）。结果会显示在下方 Result 栏目中，这个结果与我们上笔交易中向 my-keypair-2 转账的 amount 数量一致，这验证了我们之前交易的结果。
 
 <p align="center">
-  <img src="./screenshots/allowance_result.png" width="720px">
+  <img src="./screenshots/balanceof.png" width="720px">
 </p>
 
-最后我们在事件查询窗口中选择 *Approval* 事件（这里介绍 Tranferred），并点击 *Execute* 按钮（三角形状）以查询合约中所有 *Approval* 相关事件，结果会显示在下方 Event Logs 窗口中。在进行事件查询时， Conflux Studio 允许自定义查询范围。但当连接本地开发节点或者测试网时，事件查询最多只能返回 10,000 条记录，请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。当连接 Conflux 主网时，事件查询最多只能返回 1,000 条记录。
+最后我们在事件查询窗口中选择 *Transfer* 事件，并点击 *Execute* 按钮（三角形状）以查询合约中所有 *Transfer* 相关事件，结果会显示在下方 Event Logs 窗口中。在进行事件查询时， Conflux Studio 允许自定义查询范围。但当连接本地开发节点或者测试网时，事件查询最多只能返回 10,000 条记录，请保持自定义范围小于等于该数字。默认情况下事件查询窗口将返回最新 10,000 条记录。当连接 Conflux 主网时，事件查询最多只能返回 1,000 条记录。
 
 <p align="center">
-  <img src="./screenshots/approval_eventlog.png" width="720px">
+  <img src="./screenshots/transfer_eventlog.png" width="720px">
 </p>
 
 #### ABI Storage
