@@ -5,7 +5,7 @@
 Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnetwork.org/) 智能合约的集成化开发环境。Conflux Studio 现已提供运行于 macOS、Windows 和 Linux 的桌面版，以及运行于现代浏览器环境中的 [Conflux Studio Web](https://conflux.ide.black) 版。
 
 <p align="center">
-  <img src="./screenshots/studio.png" width="720px">
+  <img src="./screenshots/compile.png" width="720px">
 </p>
 
 ## 使用 Conflux Studio
