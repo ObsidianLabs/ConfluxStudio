@@ -144,7 +144,7 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 
 - `[Open Zeppelin]`：基于 [Open Zeppelin](https://openzeppelin.com/) 智能合约库的模板，提供了 ERC-20、ERC-721（NFT）、ERC-777 和 ERC-1155 等合约。
 
-- `[Truffle] Metacoin`：使用 Conflux Truffle 创建的合约；该项目目前无法部署到 Conflux 节点。
+- `[Truffle] Metacoin`：使用 Conflux Truffle 创建的合约。 目前 Conflux Studio 暂不支持部署 Metacoin 合约。
 
 <p align="center">
   <img src="./screenshots/create_project.png" width="720px">
