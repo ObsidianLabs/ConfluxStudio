@@ -22,7 +22,7 @@ You can also download the latest the installation packages through the links ([M
 
 ## Tutorial
 
-Learn how to use Conflux Studio to completely develop a token DApp in the [Conflux DApp Tutorial](https://github.com/ObsidianLabs/conflux-dapp-tutorial).
+Learn how to use Conflux Studio to completely develop a token DApp in the [Conflux DApp Tutorial](https://github.com/ObsidianLabs/conflux-dapp-tutorial/blob/master/README-EN.md).
 
 ## Features
 
