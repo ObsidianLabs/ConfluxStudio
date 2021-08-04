@@ -69,7 +69,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
   <img src="./screenshots/import_keypair.png" width="720px">
 </p>
 
-在继续之前，请先在密钥管理器中创建一些密钥对，以便我们完成接下来的操作步骤。
+在继续之前，请先在密钥管理器中创建一些密钥对，以便我们完成接下来的操作步骤。在本示例中，我们将用 my-keypair 和 my-keypair-2 两个密钥对完成接下来的操作步骤。
 
 **注意：私钥和助记词是证明密钥所有权的关键凭证，请妥善保管，不要与他人分享。泄漏私钥或助记词，可能导致数字资产永久丢失。**
 
@@ -81,7 +81,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 点击主页面中右上角的 *New Instance* 按钮打开创建新实例的弹窗，填写实例名称和选择合适的版本，点击 *Create* 按钮完成节点实例的创建。
 
-创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工（Miner）。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址会因此得到 10,000 CFX 的初始代币。
+创建新的 Conflux 节点实例时，你需要在密钥管理器已保存的密钥地址中指定一个矿工（Miner），在这里我们保持默认 my-keypair 为我们本地节点的 Miner 。Miner 将作为本地网络的矿工进行出块，并持续获得 CFX 代币作为奖励。当 Conflux 本地节点第一次运行时，会将密钥管理器里所有的地址作为创世地址，每个地址会因此得到 10,000 CFX 的初始代币。
 
 <p align="center">
   <img src="./screenshots/new_instance.png" width="720px">
@@ -169,7 +169,7 @@ Conflux Studio 区块浏览器在地址栏右侧集成了常用工具以方便�
 Conflux Studio 的项目编辑器内置了 Linter，可以在代码编辑过程中自动检查代码并提示项目代码中的警告和错误。 项目编辑器会在有警告的代码行前标注黄色的惊叹号，在错误的代码行前标注红色的叉作为提示。
 
 <p align="center">
-  <img src="./screenshots/warning_error.png" width="720px">
+  <img src="./screenshots/linter.png" width="720px">
 </p>
 
 #### 编译智能合约
@@ -188,7 +188,7 @@ Conflux Studio 的项目编辑器内置了 Linter，可以在代码编辑过程�
 
 - Compiled Contract：等待部署的合约[编译输出文件](https://docs.soliditylang.org/en/latest/using-the-compiler.html#output-description)，为 JSON 格式。一个项目内可能存在多个合约，可以通过下拉菜单中选择需要部署合约的编译输出文件；
 - Constructor Parameters：合约构造函数需要的参数，Conflux Studio 将自动根据数据格式生成参数表单，在此填入创建合约所需要的各项参数；
-- Signer：为合约部署交易进行签名的密钥地址，需要为密钥管理器中已有的密钥，通过下拉菜单中选择；
+- Signer：为合约部署交易进行签名的密钥地址，需要为密钥管理器中已有的密钥，通过下拉菜单中选择 my-keypair 。
 - Gas Limit、Gas Price、Storage Limit：合约部署的交易费用信息，部署前 Conflux Studio 会进行估算，也可使用自行填写的值进行覆盖。
 
 另外，也可以在文件浏览器中，右键点击一个 JSON 格式的编译输出文件，在菜单中选择 *Deploy*，对该合约进行部署。 
@@ -204,6 +204,7 @@ Conflux Studio 的项目编辑器内置了 Linter，可以在代码编辑过程�
 <p align="center">
   <img src="./screenshots/deploy.png" width="720px">
 </p>
+
 
 ### 调用合约
 
@@ -225,18 +226,17 @@ Conflux Studio 在部署合约后将自动保存合约 ABI，并在读取合约�
 
 首先在写入方法调用窗口中选择 *transfer* 方法，这个方法将指定数量的代币从一个地址转账到另外一个地址。接下来填入完成交易必须的各项参数：
 
-- 在 Parameters 下从 recipient 下拉菜单中选择 my-keypair-2 作为收款人地址（可以从密钥管理器双击复制），并在 amount 中填入合适的数量。
+- 在 Parameters 下从 recipient 下拉菜单中选择 my-keypair-2 作为收款人地址（可以从密钥管理器双击复制），并在 amount 中填入合适的数量（我们本次转账123个代币）。
 - 无需填写 Gas & Storage 栏目中的交易费用（由 Conflux Studio 自动估算），
-- 在 Authorization 的 Signer 下拉菜单中选择 my-keypair-1 创世地址，在本例中我们用创世地址作为汇款人地址。
+- 在 Authorization 的 Signer 下拉菜单中选择 my-keypair 创世地址，在本例中我们用创世地址作为汇款人地址。
 
 完成后，点击上方的方法名称旁的 *Execute* 按钮（三角形状）执行交易。稍后弹窗会提示交易成功及交易费用信息。
 
 <p align="center">
-  <img src="./screenshots/transfer.png" width="720px">
+  <img src="./screenshots/call_transfer_method.png" width="720px">
 </p>
 
-
-接下来，我们来验证一下上笔交易的结果。在合约读取窗口中选择 *balanceOf* 数据栏，在 Parameters 下 account 下拉菜单中选择 my-keypair-2 地址，最后点击上方的数据名称旁的 *Execute* 按钮（三角形状）。结果会显示在下方 Result 栏目中，这个结果与我们上笔交易中向 my-keypair-2 转账的 amount 数量一致，这验证了我们之前交易的结果。
+接下来，我们来验证一下上笔交易的结果。在合约读取窗口中选择 *balanceOf* 数据栏，在 Parameters 下 account 下拉菜单中选择 my-keypair-2 地址，最后点击上方的数据名称旁的 *Execute* 按钮（三角形状）。结果会显示在下方 Result 栏目中，示例中结果为 123 ，这个结果与我们上笔交易中向 my-keypair-2 转账的 amount 数量一致，这验证了我们之前交易的结果。
 
 <p align="center">
   <img src="./screenshots/balanceof.png" width="720px">
