@@ -20,7 +20,7 @@ export default class FaucetButton extends PureComponent {
       address: 'cfxtest:acejjfa80vj06j2jgtz9pngkv423fhkuxj786kjr61',
       abi: Faucet,
     })
-    const base32Address = networkManager.sdk.base32Address(this.props.address)
+    const base32Address = networkManager.sdk.utils.format.base32Address(this.props.address)
 
     this.notification = notification.info(`Claiming ${networkManager.symbol} & cUSDT...`, `Trying to claim ${networkManager.symbol} and cUSDT for <b>${this.props.address}</b>`, 0)
     

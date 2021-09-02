@@ -5,6 +5,7 @@ const { AutoUpdate } = require('@obsidians/global')
 const CompilerManager = require('@obsidians/eth-compiler')
 const { InstanceManager } = require('@obsidians/conflux-network')
 const ProjectChannel = require('@obsidians/conflux-project')
+const { SdkChannel } = require('@obsidians/conflux-sdk')
 const AuthChannel = require('@obsidians/auth')
 
 const isAppleSilicon = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M')))
@@ -13,7 +14,7 @@ if (isAppleSilicon) {
   dockerImageForNode += '-arm64'
 }
 
-let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, authChannel
+let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel, authChannel
 module.exports = function () {
   ipcChannel = new IpcChannel()
   keypairManager = new KeypairManager(process.env.PROJECT)
@@ -21,5 +22,6 @@ module.exports = function () {
   compilerManager = new CompilerManager()
   instanceManager = new InstanceManager(dockerImageForNode)
   projectChannel = new ProjectChannel()
+  sdkChannel = new SdkChannel(keypairManager)
   authChannel = new AuthChannel()
 }

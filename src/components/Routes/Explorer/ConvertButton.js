@@ -10,7 +10,8 @@ import redux from '@obsidians/redux'
 export default class ConvertButton extends PureComponent {
 
   convert = () => {
-    const convertedAddress = networkManager.sdk.convertAddress(this.props.address)
+    const chainId = networkManager.sdk.chainId
+    const convertedAddress = networkManager.sdk.utils.convertAddress(this.props.address, chainId)
 
     const explorer = this.props.explorer
 

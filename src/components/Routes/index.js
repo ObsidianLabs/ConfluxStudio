@@ -2,12 +2,12 @@ import React, { Suspense, lazy } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 
-import platform from '@obsidians/platform'
 import Auth from '@obsidians/auth'
 import { Input, LoadingScreen, CenterScreen } from '@obsidians/ui-components'
 import { NewProjectModal } from '@obsidians/project'
 
 import BottomBar from './BottomBar'
+import FrameworkSelector from './Project/FrameworkSelector'
 
 Input.defaultProps = {
   type: 'text',
@@ -17,6 +17,8 @@ Input.defaultProps = {
   spellCheck: 'false'
 }
 
+NewProjectModal.defaultProps.defaultFramework = 'cfxtruffle'
+NewProjectModal.defaultProps.FrameworkSelector = FrameworkSelector
 NewProjectModal.defaultProps.templates.splice(2, 0, 
   { id: 'sponsor', display: 'Sponsored Coin' },
 )
@@ -32,7 +34,7 @@ const Network = lazy(() => import('./Network' /* webpackChunkName: "tabs" */))
 
 export default function (props) {
   return (
-    <React.Fragment>
+    <>
       {props.children}
       <Suspense fallback={<LoadingScreen />}>
         <CacheSwitch>
@@ -81,6 +83,6 @@ export default function (props) {
         component={BottomBar}
         className='border-top-1 d-flex flex-row'
       />
-    </React.Fragment>
+    </>
   )
 }
