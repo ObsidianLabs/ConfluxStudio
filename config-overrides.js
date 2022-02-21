@@ -56,6 +56,7 @@ function addWasmLoader (options) {
 const overrides = [
   addWebpackAlias({
     crypto: 'crypto-browserify',
+    'react-highlight': path.resolve(__dirname, 'node_modules/react-highlight'),
     '@solidity-parser/parser': '@solidity-parser/parser/dist/index.cjs.js',
     '@': path.resolve(__dirname, 'src/lib'),
     '@obsidians/welcome': `@obsidians/${process.env.BUILD}-welcome`,
