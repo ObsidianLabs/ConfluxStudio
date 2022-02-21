@@ -1,6 +1,7 @@
 const os = require('os')
 const { IpcChannel } = require('@obsidians/ipc')
 const KeypairManager = require('@obsidians/keypair')
+const FileOpsChannel = require('@obsidians/file-ops')
 const { AutoUpdate } = require('@obsidians/global')
 const CompilerManager = require('@obsidians/eth-compiler')
 const { InstanceManager } = require('@obsidians/conflux-network')
@@ -14,9 +15,10 @@ if (isAppleSilicon) {
   dockerImageForNode += '-arm64'
 }
 
-let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel, authChannel
+let ipcChannel, keypairManager, fileOpsChannel, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel, authChannel
 module.exports = function () {
   ipcChannel = new IpcChannel()
+  fileOpsChannel = new FileOpsChannel()
   keypairManager = new KeypairManager(process.env.PROJECT)
   autoUpdate = new AutoUpdate('https://app.obsidians.io/api/v1/check-update/conflux/')
   compilerManager = new CompilerManager()

@@ -77,6 +77,7 @@ module.exports = merge.smart(baseConfig, {
       'process.env.SERVER_URL': JSON.stringify(process.env.REACT_APP_SERVER_URL),
       'process.env.DOCKER_IMAGE_NODE': '"confluxchain/conflux-rust"',
       'process.env.DOCKER_IMAGE_COMPILER': '"obsidians/conflux-truffle"',
+      'process.env.PROJECT_NAME': JSON.stringify(process.env.PROJECT_NAME),
     })
   ]
 })

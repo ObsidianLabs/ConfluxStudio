@@ -45,6 +45,7 @@ function createWindow () {
       nodeIntegration: true,
       enableRemoteModule: true,
       webviewTag: true,
+      contextIsolation: false
     }
   })
   win.loadURL(
