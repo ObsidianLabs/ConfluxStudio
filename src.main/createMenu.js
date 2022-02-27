@@ -133,8 +133,8 @@ module.exports = function createMenu () {
     template.push(application)
   }
 
-  // template.push(debug)
-  isDev && template.push(debug)
+  template.push(debug)
+  // isDev && template.push(debug)
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 }
