@@ -11,9 +11,9 @@ const AuthChannel = require('@obsidians/auth')
 
 const isAppleSilicon = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M')))
 let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
-if (isAppleSilicon) {
-  dockerImageForNode += '-arm64'
-}
+// if (isAppleSilicon) {
+//   dockerImageForNode += '-arm64'
+// }
 
 let ipcChannel, fileOpsChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel, authChannel
 module.exports = function () {

@@ -1,8 +1,11 @@
+const os = require('os')
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const CopyPlugin = require('copy-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+
+const isAppleSilicon = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M')))
 
 const baseConfig = require('./webpack.base.config')
 
@@ -76,7 +79,7 @@ module.exports = merge.smart(baseConfig, {
       'process.env.PROJECT': JSON.stringify(process.env.PROJECT || process.env.BUILD),
       'process.env.PROJECT_NAME': JSON.stringify(process.env.PROJECT_NAME),
       'process.env.SERVER_URL': JSON.stringify(process.env.REACT_APP_SERVER_URL),
-      'process.env.DOCKER_IMAGE_NODE': '"confluxchain/conflux-rust"',
+      'process.env.DOCKER_IMAGE_NODE': isAppleSilicon ? '"confluxchain/conflux-rust-arm64"' : '"confluxchain/conflux-rust"',
       'process.env.DOCKER_IMAGE_COMPILER': '"obsidians/conflux-truffle"',
       'process.env.PROJECT_NAME': JSON.stringify(process.env.PROJECT_NAME),
     })
