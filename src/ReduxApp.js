@@ -20,9 +20,9 @@ import icon from './components/icon.png'
 const Header = lazy(() => import('./components/Header' /* webpackChunkName: "components" */))
 
 let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
-if (platform.isAppleSilicon) {
-  dockerImageForNode += '-arm64'
-}
+// if (platform.isAppleSilicon) {
+//   dockerImageForNode += '-arm64'
+// }
 instanceChannel.node = new DockerImageChannel(dockerImageForNode, {
   filter: v => semver.valid(v) && semver.gte(v, '1.0.0') && v.indexOf('testnet') === -1 && v.indexOf('mainnet') === -1
 })
