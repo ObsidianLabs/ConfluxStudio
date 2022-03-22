@@ -5,9 +5,9 @@ import nodeManager from '@obsidians/node'
 import RemoteNetworkInfo from './RemoteNetworkInfo'
 
 let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
-if (platform.isAppleSilicon) {
-  dockerImageForNode += '-arm64'
-}
+// if (platform.isAppleSilicon) {
+//   dockerImageForNode += '-arm64'
+// }
 
 nodeManager.generateCommand = ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`

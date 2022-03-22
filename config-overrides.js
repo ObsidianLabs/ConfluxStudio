@@ -8,6 +8,7 @@ const {
   addWebpackPlugin,
 } = require('customize-cra')
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
+const isAppleSilicon = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M')))
 
 function findWebpackPlugin (plugins, pluginName) {
   return plugins.find(plugin => plugin.constructor.name === pluginName)
@@ -89,7 +90,7 @@ const overrides = [
     COMPILER_NAME_IN_LABEL: '"Conflux truffle"',
     COMPILER_EXECUTABLE_NAME: '"cfxtruffle"',
     COMPILER_VERSION_KEY: '"cfxtruffle"',
-    DOCKER_IMAGE_NODE: '"confluxchain/conflux-rust"',
+    DOCKER_IMAGE_NODE: isAppleSilicon ? '"confluxchain/conflux-rust-arm64"' : '"confluxchain/conflux-rust"',
     DOCKER_IMAGE_COMPILER: '"obsidians/conflux-truffle"',
     ENABLE_AUTH: true,
   }),
