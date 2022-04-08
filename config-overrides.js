@@ -68,6 +68,7 @@ const overrides = [
     '@obsidians/contract': `@obsidians/${process.env.BUILD}-contract`,
     '@obsidians/explorer': `@obsidians/${process.env.BUILD}-explorer`,
     '@obsidians/network': `@obsidians/${process.env.BUILD}-network`,
+    '@obsidians/sdk': `@obsidians/${process.env.BUILD}-sdk`,
     '@obsidians/node': `@obsidians/${process.env.BUILD}-node`,
     '@obsidians/premium-editor': path.resolve(__dirname, process.env.PREMIUM_EDITOR || 'empty.js'),
   }),
