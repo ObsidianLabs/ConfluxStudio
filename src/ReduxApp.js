@@ -24,7 +24,7 @@ let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
 //   dockerImageForNode += '-arm64'
 // }
 instanceChannel.node = new DockerImageChannel(dockerImageForNode, {
-  filter: v => semver.valid(v) && semver.gte(v, '1.0.0') && v.indexOf('testnet') === -1 && v.indexOf('mainnet') === -1
+  filter: v => semver.valid(v) && semver.gte(v, '1.0.0') && semver.lt(v, '2.0.0') && v.indexOf('testnet') === -1 && v.indexOf('mainnet') === -1
 })
 
 export default class ReduxApp extends Component {
