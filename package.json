@@ -142,7 +142,7 @@
       "appId": "com.obsidians.confluxstudio",
       "category": "developer-tools",
       "target": {
-        "target": "default",
+        "target": "dmg",
         "arch": [
           "x64",
           "arm64"
