@@ -12,8 +12,14 @@ let dockerImageForNode = process.env.DOCKER_IMAGE_NODE
 nodeManager.generateCommand = ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`
 
+  let configFile = 'default.toml'
+
+  if (version.startsWith('2.')) { 
+    configFile = 'conflux.toml'
+  }
+
   return [
-    'docker run -it --rm',
+    `pwd && docker run -it --rm`,
     `--name ${containerName}`,
     `-p 12535:12535`,
     `-p 12536:12536`,
@@ -22,7 +28,7 @@ nodeManager.generateCommand = ({ name, version }) => {
     `-w /${process.env.PROJECT}-node`,
     `--entrypoint conflux`,
     `${dockerImageForNode}:${version}`,
-    `--config default.toml`
+    `--config ${configFile}`,
   ].join(' ')
 }
 
