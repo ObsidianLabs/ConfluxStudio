@@ -26,7 +26,7 @@
     "dev": "concurrently \"yarn dev:react\" \"wait-on http://localhost:3000 && yarn dev:main\"",
     "build": "yarn build:react && yarn build:main",
     "dist": "yarn build && electron-builder -c.extraMetadata.main=build/main/index.js",
-    "dist-arm": "yarn build && electron-builder --arm64 -c.extraMetadata.main=build/main/index.js",
+    "dist-arm": "export APPLE_CPU=m1 && yarn build && electron-builder --arm64 -c.extraMetadata.main=build/main/index.js",
     "lint": "tslint '{src,test,mocks}/**/*.{ts,tsx}' --project ./tsconfig.json",
     "test": "jest '(\\/test\\/(?!e2e/)).*'",
     "pretest:e2e": "yarn build",
