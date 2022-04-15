@@ -188,7 +188,7 @@ jobs:
         run: yarn build
 
       - name: Build Mac Arm
-        if: ${{ env.os_matrix == 'macos-latest' }}
+        if: ${{ matrix.os == 'macos-latest' }}
         uses: ObsidianLabs/studio-build-action@master
         with:
           build: ${{ env.project_build }}
@@ -207,7 +207,7 @@ jobs:
           github_token: ${{ github.token }}
 
       - name: Rename Mac Arm
-        if: ${{ env.os_matrix == 'macos-latest' }}
+        if: ${{ matrix.os == 'macos-latest' }}
         working-directory: ./studio/dist
         run: mv ConfluxStudio-${{ needs.versions.outputs.version }}.dmg ConfluxStudio-${{ needs.versions.outputs.version }}-arm64.dmg 
 
