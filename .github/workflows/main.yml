@@ -205,9 +205,11 @@ jobs:
           react_app_mixpanel_token: ${{ secrets.react_app_mixpanel_token }}
           premium_editor: ${{ env.premium_editor }}
           github_token: ${{ github.token }}
-        run: |
-          cd dist
-          mv ConfluxStudio-${{ needs.versions.outputs.version }}.dmg ConfluxStudio-${{ needs.versions.outputs.version }}-arm64.dmg 
+
+      - name: Rename Mac Arm
+        if: ${{ env.os_matrix == 'macos-latest' }}
+        working-directory: ./studio/dist
+        run: mv ConfluxStudio-${{ needs.versions.outputs.version }}.dmg ConfluxStudio-${{ needs.versions.outputs.version }}-arm64.dmg 
 
       - name: Build ${{ env.project_name }}
         uses: ObsidianLabs/studio-build-action@master
