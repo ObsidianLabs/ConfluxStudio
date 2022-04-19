@@ -5,8 +5,8 @@ const merge = require('webpack-merge')
 const CopyPlugin = require('copy-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
-// const isAppleSilicon = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M')))
-const isAppleSilicon = process.env.APPLE_CPU === "m1" || false
+const isAppleSiliconDev = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M')))
+const isAppleSilicon = isAppleSiliconDev || process.env.APPLE_CPU === "m1" || false
 
 const baseConfig = require('./webpack.base.config')
 
