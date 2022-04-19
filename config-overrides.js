@@ -8,8 +8,8 @@ const {
   addWebpackPlugin,
 } = require('customize-cra')
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
-// const isAppleSilicon = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M'))) 
-const isAppleSilicon = process.env.APPLE_CPU === "m1" || false
+const isAppleSiliconDev = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M'))) 
+const isAppleSilicon = isAppleSiliconDev || process.env.APPLE_CPU === "m1" || false
 
 function findWebpackPlugin (plugins, pluginName) {
   return plugins.find(plugin => plugin.constructor.name === pluginName)
@@ -68,9 +68,8 @@ const overrides = [
     '@obsidians/project': `@obsidians/${process.env.BUILD}-project`,
     '@obsidians/contract': `@obsidians/${process.env.BUILD}-contract`,
     '@obsidians/explorer': `@obsidians/${process.env.BUILD}-explorer`,
-    '@obsidians/sdk': `@obsidians/${process.env.BUILD}-sdk`,
     '@obsidians/network': `@obsidians/${process.env.BUILD}-network`,
-    '@obsidians/sdk': `@obsidians/${process.env.BUILD}-sdk`,
+    '@obsidians/sdk': `@obsidians/${process.env.PROJECT}-sdk`,
     '@obsidians/node': `@obsidians/${process.env.BUILD}-node`,
     '@obsidians/premium-editor': path.resolve(__dirname, process.env.PREMIUM_EDITOR || 'empty.js'),
   }),
