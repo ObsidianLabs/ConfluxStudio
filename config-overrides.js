@@ -8,8 +8,8 @@ const {
   addWebpackPlugin,
 } = require('customize-cra')
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
-const isAppleSiliconDev = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M'))) 
-const isAppleSilicon = isAppleSiliconDev || process.env.APPLE_CPU === "m1" || false
+// const isAppleSiliconDev = Boolean(os.cpus().find(cpu => cpu.model.startsWith('Apple M'))) 
+const isAppleSilicon = process.env.APPLE_CPU === "m1" || false
 
 function findWebpackPlugin (plugins, pluginName) {
   return plugins.find(plugin => plugin.constructor.name === pluginName)
