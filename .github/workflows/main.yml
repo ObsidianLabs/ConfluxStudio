@@ -15,6 +15,7 @@ env:
   project_project: conflux
   project_name: Conflux Studio
   project_build_script: yarn && yarn dist
+  project_build_script_x64: yarn && yarn dist-x64
   project_build_script_arm: yarn && yarn dist-arm
   os_matrix: '[\"macos-latest\", \"ubuntu-18.04\", \"windows-2019\"]'
   enable_auth: false
@@ -187,7 +188,7 @@ jobs:
         working-directory: ./premium-editor
         run: yarn build
 
-      - name: Build Mac Arm
+      - name: Build ${{ env.project_name }} Mac Arm
         if: ${{ matrix.os == 'macos-latest' }}
         uses: ObsidianLabs/studio-build-action@master
         with:
@@ -206,18 +207,28 @@ jobs:
           premium_editor: ${{ env.premium_editor }}
           github_token: ${{ github.token }}
 
-      - name: Rename Mac Arm
+      - name: Rename ${{ env.project_name }} Mac Arm
         if: ${{ matrix.os == 'macos-latest' }}
         working-directory: ./studio/dist
-        run: mv ConfluxStudio-${{ needs.versions.outputs.version }}.dmg ConfluxStudio-${{ needs.versions.outputs.version }}-arm64.dmg 
+        run: mv ConfluxStudio-${{ needs.versions.outputs.version }}.dmg ConfluxStudio-${{ needs.versions.outputs.version }}-arm64.dmg
 
-      - name: Build ${{ env.project_name }}
+      - name: Upload Arm version
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'studio/dist/*.dmg'
+          repo-token: ${{ github.token }}
+
+      - name: Clean up Build assets (Mac Arm)
+        working-directory: ./studio/dist
+        run: rm -rf ./*
+
+      - name: Build ${{ env.project_name }} x64
         uses: ObsidianLabs/studio-build-action@master
         with:
           build: ${{ env.project_build }}
           project: ${{ env.project_project }}
           project_name: ${{ env.project_name }}
-          build_script: ${{ env.project_build_script }}
+          build_script: ${{ env.project_build_script_x64 }}
           working-directory: ./studio
           enable_auth: ${{ env.enable_auth }}
           fontawesome_token: ${{ secrets.fontawesome_token }}
