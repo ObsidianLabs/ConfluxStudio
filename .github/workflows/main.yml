@@ -213,12 +213,14 @@ jobs:
         run: mv ConfluxStudio-${{ needs.versions.outputs.version }}.dmg ConfluxStudio-${{ needs.versions.outputs.version }}-arm64.dmg
 
       - name: Upload Arm version
+        if: ${{ matrix.os == 'macos-latest' }}
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'studio/dist/*.dmg'
           repo-token: ${{ github.token }}
 
       - name: Clean up Build assets (Mac Arm)
+        if: ${{ matrix.os == 'macos-latest' }}
         working-directory: ./studio/dist
         run:  |
           rm -rf ./*
