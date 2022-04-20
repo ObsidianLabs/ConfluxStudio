@@ -54,6 +54,33 @@ export default class FrameworkSelector extends PureComponent {
     terminal,
   }) => {
     if (framework === 'cfxtruffle') {
+      let hasGlobalTruffle = false
+      let hasGlobalTruffleAndRightVersion = false
+      let checkResult
+      switch (npmClient) {
+        case 'npm':
+        case 'cnpm':
+          checkResult = await terminal.exec(`${npmClient} ls -g --depth=0 | grep conflux-truffle`, { cwd: projectRoot })
+          break;
+        case 'yarn':
+          checkResult = await terminal.exec(`${npmClient} global list --depth=0 | grep conflux-truffle`, { cwd: projectRoot })
+      }
+      let checkResultValue = checkResult.logs || ""
+      checkResultValue = checkResultValue.match(/conflux-truffle@[\d.]+/)[0]
+      if (checkResultValue && checkResultValue.indexOf('conflux-truffle') > -1) {
+        hasGlobalTruffle = true
+        if (checkResultValue.indexOf(`conflux-truffle@${compilerVersion}`) > -1) {
+          hasGlobalTruffleAndRightVersion = true
+        }
+      }
+
+      if (hasGlobalTruffle && hasGlobalTruffleAndRightVersion) return true
+      if (hasGlobalTruffle) {
+        notification.error('Version Error', `The global installed truffle is not the correct version. need: ${compilerVersion}, current: ${checkResultValue}`)
+        return false
+      }
+
+      await terminal.exec(`${npmClient} ${installCommand} conflux-truffle@${compilerVersion}`, { cwd: projectRoot })
       const result = await terminal.exec(`${npmClient} ${installCommand} conflux-truffle@${compilerVersion}`, { cwd: projectRoot })
       if (result.code) {
         notification.error('Fail to Install Conflux Truffle')
