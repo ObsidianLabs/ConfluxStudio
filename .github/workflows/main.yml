@@ -220,7 +220,10 @@ jobs:
 
       - name: Clean up Build assets (Mac Arm)
         working-directory: ./studio/dist
-        run: rm -rf ./*
+        run:  |
+          rm -rf ./*
+          cd ../build
+          rm -rf ./*
 
       - name: Build ${{ env.project_name }} x64
         uses: ObsidianLabs/studio-build-action@master
