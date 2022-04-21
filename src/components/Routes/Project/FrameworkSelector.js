@@ -5,11 +5,14 @@ import {
   Label,
   ButtonOptions,
   DropdownInput,
+  Modal,
 } from '@obsidians/ui-components'
 
 import notification from '@obsidians/notification'
 import { DockerImageInputSelector } from '@obsidians/docker'
 import compilerManager from '@obsidians/compiler'
+import os from 'os'
+import './frameworkSelector.scss'
 
 const frameworkNames = {
   cfxtruffle: 'Conflux Truffle',
@@ -31,7 +34,9 @@ export default class FrameworkSelector extends PureComponent {
     this.state = {
       cfxtruffleVersion: 'v1.0.2',
       cfxtruffleDockerVersion: '',
+      teachInstallCommand: '',
     }
+    this.confirmModal = React.createRef()
   }
 
   getNameAndVersion = (framework, remote) => {
@@ -48,25 +53,52 @@ export default class FrameworkSelector extends PureComponent {
   installDependencies = async ({
     framework,
     npmClient,
-    installCommand,
-    compilerVersion,
+    compilerVersion = '0.0.0',
     projectRoot,
     terminal,
   }) => {
     if (framework === 'cfxtruffle') {
-      let hasGlobalTruffle = false
-      let hasGlobalTruffleAndRightVersion = false
-      let checkResult
+      const grep = os.platform === 'win32' ? 'findstr' : 'grep'
+      // let hasGlobalTruffleAndRightVersion = false
+      let checkCommand
       switch (npmClient) {
         case 'npm':
         case 'cnpm':
-          checkResult = await terminal.exec(`${npmClient} ls -g --depth=0 | grep conflux-truffle`, { cwd: projectRoot })
+          checkCommand = `${npmClient} ls -g --depth=0 | ${grep} conflux-truffle`
+          this.setState({
+            teachInstallCommand: `${npmClient} i -g conflux-truffle`
+          })
           break;
         case 'yarn':
-          checkResult = await terminal.exec(`${npmClient} global list --depth=0 | grep conflux-truffle`, { cwd: projectRoot })
+          checkCommand = `${npmClient} global list --depth=0 | ${grep} conflux-truffle`
+          this.setState({
+            teachInstallCommand: `${npmClient} global add conflux-truffle`
+          })
       }
-      let checkResultValue = checkResult.logs || ""
-      checkResultValue = checkResultValue.match(/conflux-truffle@[\d.]+/)[0]
+
+      let hasGlobalTruffle = false
+      while (true){
+        const checkResult = await terminal.exec(checkCommand, { cwd: projectRoot })
+        let checkResultValue = checkResult.logs || ""
+        checkResultValue = checkResultValue.match(/conflux-truffle@[\d.]+/) ? checkResultValue.match(/conflux-truffle@[\d.]+/)[0] : ''
+        if (checkResultValue.indexOf(`conflux-truffle@${compilerVersion}`) > -1) hasGlobalTruffle = false
+        if (checkResultValue) return true
+        const result = await new Promise(res => {
+          this.onConfirm = () => {
+            this.confirmModal.current.closeModal()
+            res(true)
+          }
+          this.onClose = () => {
+            this.confirmModal.current.closeModal()
+            res(false)
+          }
+          this.confirmModal.current.openModal()
+        })
+        if (!result) return true
+      }
+
+      return false
+
       if (checkResultValue && checkResultValue.indexOf('conflux-truffle') > -1) {
         hasGlobalTruffle = true
         if (checkResultValue.indexOf(`conflux-truffle@${compilerVersion}`) > -1) {
@@ -91,6 +123,7 @@ export default class FrameworkSelector extends PureComponent {
   }
 
   renderFrameworkVersions = () => {
+    // hide chose
     const { framework } = this.props
     const { cfxtruffleVersion, cfxtruffleDockerVersion } = this.state
     if (framework === 'cfxtruffle') {
@@ -127,6 +160,20 @@ export default class FrameworkSelector extends PureComponent {
   }
  
   render () {
+
+    return (
+      <Modal
+        ref={this.confirmModal}
+        title='Conflux Truffle Not Found'
+        onConfirm={() => this.onConfirm()}
+        textConfirm='OK'
+        textCancel='Skip'
+        onClosed={() => this.onClose()}
+      >
+      <p>Local Conflux Truffle installation not found. If you did not have Conflux Truffle installed yet, please proceed to terminal to install Conflux Truffle by running following command:</p>
+      <code className='framework-selector-code'>{this.state.teachInstallCommand}</code>
+      <p>If you have installed Conflux Truffle, press OK to proceed.</p>
+      </Modal>)
     const { framework, group, onSelectFramework } = this.props
 
     const options = [{ key: 'cfxtruffle-docker', text: frameworkNames['cfxtruffle-docker'] }]
