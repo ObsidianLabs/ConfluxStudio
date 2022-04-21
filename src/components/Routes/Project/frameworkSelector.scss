@@ -1,0 +1,12 @@
+.framework-selector-code{
+    background: rgba(0, 0, 0, .2);
+    border-radius: .5rem;
+    opacity: .8;
+    &::before{
+        content: "$";
+        opacity: .5;
+        margin: 0 .5rem 0 1rem;
+    }
+    margin: .5rem 0;
+    padding: .5rem 0;
+}
