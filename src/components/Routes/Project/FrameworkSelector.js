@@ -160,8 +160,14 @@ export default class FrameworkSelector extends PureComponent {
   }
  
   render () {
+    const { framework, group, onSelectFramework } = this.props
 
-    return (
+    const options = [{ key: 'cfxtruffle-docker', text: frameworkNames['cfxtruffle-docker'] }]
+    if (group !== process.env.COMPILER_NAME) {
+      options.unshift({ key: 'cfxtruffle', text: frameworkNames.cfxtruffle })
+    }
+
+    return <>
       <Modal
         ref={this.confirmModal}
         title='Conflux Truffle Not Found'
@@ -173,15 +179,7 @@ export default class FrameworkSelector extends PureComponent {
       <p>Local Conflux Truffle installation not found. If you did not have Conflux Truffle installed yet, please proceed to terminal to install Conflux Truffle by running following command:</p>
       <code className='framework-selector-code'>{this.state.teachInstallCommand}</code>
       <p>If you have installed Conflux Truffle, press OK to proceed.</p>
-      </Modal>)
-    const { framework, group, onSelectFramework } = this.props
-
-    const options = [{ key: 'cfxtruffle-docker', text: frameworkNames['cfxtruffle-docker'] }]
-    if (group !== process.env.COMPILER_NAME) {
-      options.unshift({ key: 'cfxtruffle', text: frameworkNames.cfxtruffle })
-    }
-
-    return (
+      </Modal>
       <div className='row'>
         <div className='col-12 col-sm-7'>
           <FormGroup>
@@ -197,10 +195,10 @@ export default class FrameworkSelector extends PureComponent {
             </div>
           </FormGroup>
         </div>
-        <div className='col-12 col-sm-5'>
+        {/* <div className='col-12 col-sm-5'>
           {this.renderFrameworkVersions()}
-        </div>
+        </div> */}
       </div>
-    )
+    </>
   }
 }
