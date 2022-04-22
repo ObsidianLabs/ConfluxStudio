@@ -127,6 +127,7 @@ export default class FrameworkSelector extends PureComponent {
     const { framework } = this.props
     const { cfxtruffleVersion, cfxtruffleDockerVersion } = this.state
     if (framework === 'cfxtruffle') {
+      return null
       return (
         <FormGroup className='mb-2'>
           <Label>Conflux truffle version</Label>
@@ -195,9 +196,9 @@ export default class FrameworkSelector extends PureComponent {
             </div>
           </FormGroup>
         </div>
-        {/* <div className='col-12 col-sm-5'>
+        <div className='col-12 col-sm-5'>
           {this.renderFrameworkVersions()}
-        </div> */}
+        </div>
       </div>
     </>
   }
