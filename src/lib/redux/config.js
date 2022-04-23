@@ -111,6 +111,17 @@ export const accounts = {
   }
 }
 
+// TODO: merge the network Info
+export const networkConnect = {
+  default: false,
+  persist: false,
+  actions: {
+    CHANGE_NETWORK_STATUS: {
+      reducer: (_, { payload }) => payload,
+    },
+  },
+};
+
 export const network = {
   default: '',
   persist: false,

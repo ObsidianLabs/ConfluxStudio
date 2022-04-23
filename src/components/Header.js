@@ -31,17 +31,30 @@ class HeaderWithRedux extends PureComponent {
     networkList: List(),
   }
 
-  componentDidMount () {
+  componentDidMount() {
     actions.history = this.props.history
     headerActions.history = this.props.history
-    this.setState({ networkList: List(networkManager.networks) }, this.setNetwork)
+    const customeNetworkMap = this.props.customNetworks.toJS();
+    const customeNetworkGroup = Object.keys(customeNetworkMap).map(
+      (name) => ({
+        group: 'others',
+        icon: 'fas fa-vial',
+        id: name,
+        name: name,
+        notification: `Switched to <b>Fantom Testnet</b>.`,
+        url: customeNetworkMap[name].url,
+      })
+    );
+
+    networkManager.addSdk(ConfluxSdk, customeNetworkGroup);
+
     if (!networkManager.network) {
       networkManager.setNetwork(networkManager.networks[0], { notify: false })
     }
     this.navGuard = new NavGuard(this.props.history)
   }
 
-  componentDidUpdate (props) {
+  componentDidUpdate(props) {
     if (this.props.network !== props.network) {
       const network = this.props.network
       KeypairInputSelector.defaultProps = {
@@ -66,15 +79,15 @@ class HeaderWithRedux extends PureComponent {
     return networkList
   }
 
-  render () {
+  render() {
     console.debug('[render] HeaderWithRedux')
     const { uiState, profile, projects, contracts, accounts, network } = this.props
 
     const selectedProject = projects.get('selected')?.toJS() || {}
-
-    const networkGroups = this.state.networkList.groupBy(n => n.group)
+    const networkList = List(networkManager.networks)
+    const networkGroups = networkList.groupBy(n => n.group)
     const groupedNetworks = this.groupedNetworks(networkGroups)
-    const selectedNetwork = this.state.networkList.find(n => n.id === network) || {}
+    const selectedNetwork = networkList.find(n => n.id === network) || {}
 
     const browserAccounts = uiState.get('browserAccounts') || []
     const starred = accounts.getIn([network, 'accounts'])?.toJS() || []
@@ -110,4 +123,5 @@ export default connect([
   'contracts',
   'accounts',
   'network',
+  'customNetworks',
 ])(HeaderWithRedux)
