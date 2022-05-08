@@ -80,6 +80,7 @@ export default class FrameworkSelector extends PureComponent {
       while (true){
         const checkResult = await terminal.exec(checkCommand, { cwd: projectRoot })
         let checkResultValue = checkResult.logs || ""
+        checkResultValue = checkResultValue.toLowerCase()
         checkResultValue = checkResultValue.match(/conflux-truffle@[\d.]+/) ? checkResultValue.match(/conflux-truffle@[\d.]+/)[0] : ''
         if (checkResultValue.indexOf(`conflux-truffle@${compilerVersion}`) > -1) hasGlobalTruffle = false
         if (checkResultValue) return true
