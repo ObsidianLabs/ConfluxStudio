@@ -19,7 +19,7 @@ nodeManager.generateCommand = ({ name, version }) => {
   }
 
   return [
-    `pwd && docker run -it --rm`,
+    `docker run -it --rm`,
     `--name ${containerName}`,
     `-p 12535:12535`,
     `-p 12536:12536`,
