@@ -16,6 +16,11 @@ export default class FaucetButton extends PureComponent {
       return
     }
 
+    let gasPrice = "1"
+    if(networkManager?.sdk?.client) {
+      gasPrice = await networkManager.sdk.client.callRpc('cfx_gasPrice', [])
+    }
+
     const faucetContract = networkManager.sdk.contractFrom({
       address: 'cfxtest:acejjfa80vj06j2jgtz9pngkv423fhkuxj786kjr61',
       abi: Faucet,
@@ -27,7 +32,7 @@ export default class FaucetButton extends PureComponent {
     let tx1 = faucetContract.execute('claimCfx', { array: [] }, { from: base32Address, value: '0' })
     try {
       const override1 = await networkManager.sdk.estimate(tx1)
-      override1.gasPrice = '1'
+      override1.gasPrice = gasPrice
       tx1 = faucetContract.execute('claimCfx', { array: [] }, { ...override1, from: base32Address, value: '0' })
       const pendingTx1 = networkManager.sdk.sendTransaction(tx1)
       await pendingTx1.mined()
@@ -40,7 +45,7 @@ export default class FaucetButton extends PureComponent {
     let tx2 = faucetContract.execute('claimToken', { array: ['cfxtest:acepe88unk7fvs18436178up33hb4zkuf62a9dk1gv'] }, { from: base32Address, value: '0' })
     try {
       const override2 = await networkManager.sdk.estimate(tx2)
-      override2.gasPrice = '1'
+      override2.gasPrice = gasPrice
       tx2 = faucetContract.execute('claimToken', {
         array: ['cfxtest:acepe88unk7fvs18436178up33hb4zkuf62a9dk1gv']
       }, { ...override2, from: base32Address, value: '0' })
