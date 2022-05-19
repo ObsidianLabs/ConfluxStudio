@@ -17,6 +17,7 @@ You can also download the latest the installation packages through the links ([M
 ### Install
 
 - **macOS**: Double click to open `ConfluxStudio-x.x.x.dmg` and drag `Conflux Studio` to the application folder.
+  - For Apple silicon, use `ConfluxStudio-x.x.x-arm64.dmg`, for Intel core,  use `ConfluxStudio-x.x.x-x64.dmg`.
 - **Linux**: Double-click to open `ConfluxStudio-x.x.x.AppImage`, select *Properties* => *Permissions* => *Execute*, and tick the *Allow executing file as progrom* option. Close the properties window and double-click to open the application (different Linux distributions may have different installation methods).
 - **Windows**: Double click to run the `ConfluxStudio-x.x.x.exe`.
 
