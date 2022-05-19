@@ -20,10 +20,10 @@ export default class RemoteNetworkInfo extends PureComponent {
               name='Chain ID'
               badge={status?.chainId}
             />
-            <TableCardRow
+            { info && info.tps && <TableCardRow
               name='TPS'
               badge={info && Number(info?.tps).toFixed(6)}
-            />
+            />}
           </TableCard>
         </div>
         <div className='col-6 p-0'>
