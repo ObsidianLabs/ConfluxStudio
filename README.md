@@ -15,6 +15,7 @@ Conflux Studio 是一个帮助开发者快速开发 [Conflux](https://confluxnet
 Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/ConfluxStudio/releases) 进行下载。目前 Conflux Studio 桌面版支持 macOS、Linux 和 Windows 系统，请根据系统下载对应的版本 （macOS 下载 `.dmg` 或者 `.zip`，Linux 下载 `.AppImage`， Windows 下载 `.exe`）。
 
 - **macOS**: 双击打开 `ConfluxStudio-x.x.x.dmg` 并将 `Conflux Studio` 拖动到应用文件夹内。
+  - 苹果 m1 芯片请使用 `ConfluxStudio-x.x.x-arm64.dmg` 版本，Intel 芯片请使用 `ConfluxStudio-x.x.x-x64.dmg` 版本。
   - 第一次运行 Conflux Studio 时，可能会收到系统 *”无法打开 "Conflux Studio"，因为 Apple 无法检查其是否包含恶意软件“* 的提示。此时请打开 *系统偏好设置* ，前往 *安全性与隐私* 。点按 *通用* 面板中 *仍要打开* 按钮以允许 Conflux Studio 运行。
 - **Linux**: 双击打开 `ConfluxStudio-x.x.x.AppImage`， 选择 *Properties* => *Permissions* => *Execute*， 将 *Allow executing file as program* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
 - **Windows**:  双击打开 `ConfluxStudio-x.x.x.exe`。
@@ -31,7 +32,7 @@ Conflux Studio 安装包可以在 [Github Releases](https://github.com/ObsidianL
 
 ## 功能预览
 
-以下示例以 Conflux Studio v0.14.0 macOS 桌面版为例，Conflux Studio 各版本操作界面和功能均保持一致，实际操作以界面显示为准。
+以下示例以 Conflux Studio v0.17.4 macOS 桌面版为例，Conflux Studio 各版本操作界面和功能均保持一致，实际操作以界面显示为准。
 
 ### 准备工作 
 
