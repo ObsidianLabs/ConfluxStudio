@@ -36,18 +36,18 @@ export default class RemoteNetworkInfo extends PureComponent {
               name='Block Number'
               badge={status?.blockNumber}
             />
-            <TableCardRow
+            {info && info.blockTime && <TableCardRow
               name='Block Time'
               badge={info ? `${Number(info.blockTime).toFixed(2)} s` : ''}
-            />
-            <TableCardRow
+            />}
+            {info && info.difficulty && <TableCardRow
               name='Difficulty'
               badge={info && Number(info.difficulty).toFixed(0)}
-            />
-            <TableCardRow
+            />}
+            {info && info.hashRate &&  <TableCardRow
               name='Hash Rate'
               badge={info && Number(info.hashRate).toFixed(0)}
-            />
+            />}
           </TableCard>
         </div>
       </div>
