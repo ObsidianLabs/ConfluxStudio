@@ -29,11 +29,13 @@ export default class FaucetButton extends PureComponent {
 
     this.notification = notification.info(`Claiming ${networkManager.symbol} & cUSDT...`, `Trying to claim ${networkManager.symbol} and cUSDT for <b>${this.props.address}</b>`, 0)
     
+    const account = await networkManager.sdk.client.cfx.getAccount(base32Address)
+    let nonce = Number(account.nonce.toString())
     let tx1 = faucetContract.execute('claimCfx', { array: [] }, { from: base32Address, value: '0' })
     try {
       const override1 = await networkManager.sdk.estimate(tx1)
       override1.gasPrice = gasPrice
-      tx1 = faucetContract.execute('claimCfx', { array: [] }, { ...override1, from: base32Address, value: '0' })
+      tx1 = faucetContract.execute('claimCfx', { array: [] }, { ...override1, nonce: nonce, from: base32Address, value: '0' })
       const pendingTx1 = networkManager.sdk.sendTransaction(tx1)
       await pendingTx1.mined()
     } catch (e) {
@@ -48,7 +50,7 @@ export default class FaucetButton extends PureComponent {
       override2.gasPrice = gasPrice
       tx2 = faucetContract.execute('claimToken', {
         array: ['cfxtest:acepe88unk7fvs18436178up33hb4zkuf62a9dk1gv']
-      }, { ...override2, from: base32Address, value: '0' })
+      }, { ...override2, nonce: nonce + 1, from: base32Address, value: '0' })
       const pendingTx2 = networkManager.sdk.sendTransaction(tx2)
       await pendingTx2.mined()
     } catch (e) {

@@ -58,7 +58,7 @@ export default class FrameworkSelector extends PureComponent {
     terminal,
   }) => {
     if (framework === 'cfxtruffle') {
-      const grep = os.platform === 'win32' ? 'findstr' : 'grep'
+      const grep = os.platform() === 'win32' ? 'findstr' : 'grep'
       // let hasGlobalTruffleAndRightVersion = false
       let checkCommand
       switch (npmClient) {
