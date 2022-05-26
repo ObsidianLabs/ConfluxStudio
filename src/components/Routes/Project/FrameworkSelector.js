@@ -58,19 +58,19 @@ export default class FrameworkSelector extends PureComponent {
     terminal,
   }) => {
     if (framework === 'cfxtruffle') {
-      const grep = os.platform() === 'win32' ? 'findstr' : 'grep'
+      // const grep = os.platform() === 'win32' ? 'findstr' : 'grep'
       // let hasGlobalTruffleAndRightVersion = false
       let checkCommand
       switch (npmClient) {
         case 'npm':
         case 'cnpm':
-          checkCommand = `${npmClient} ls -g --depth=0 | ${grep} conflux-truffle`
+          checkCommand = `${npmClient} ls -g --depth=0`
           this.setState({
             teachInstallCommand: `${npmClient} i -g conflux-truffle`
           })
           break;
         case 'yarn':
-          checkCommand = `${npmClient} global list --depth=0 | ${grep} conflux-truffle`
+          checkCommand = `${npmClient} global list --depth=0`
           this.setState({
             teachInstallCommand: `${npmClient} global add conflux-truffle`
           })
@@ -79,6 +79,7 @@ export default class FrameworkSelector extends PureComponent {
       let hasGlobalTruffle = false
       while (true){
         const checkResult = await terminal.exec(checkCommand, { cwd: projectRoot })
+        console.log(checkResult)
         let checkResultValue = checkResult.logs || ""
         checkResultValue = checkResultValue.toLowerCase()
         checkResultValue = checkResultValue.match(/conflux-truffle@[\d.]+/) ? checkResultValue.match(/conflux-truffle@[\d.]+/)[0] : ''
