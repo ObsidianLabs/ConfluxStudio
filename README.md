@@ -272,6 +272,14 @@ Conflux Studio 会记录每笔发布到链上的交易。如需查看最近的�
   <img src="./screenshots/transactions.png" width="720px">
 </p>
 
+#### 网络按钮
+
+Conflux Studio 的底部栏有网络图标，可以直观的看到网络连接状态。网络未连接时，图标置灰。网络连接时，图标亮起。点击网络按钮可选择断开或者重连网络连接。
+
+<p align="center">
+  <img src="./screenshots/network_tools.png" width="720px">
+</p>
+
 #### RPC Client
 
 Conflux Studio 还提供了直接从底层调用 Conflux 节点 RPC 接口的功能。点击底部栏的网络按钮，在弹出菜单中选择并打开 RPC Client 后，可以看到 Conflux 节点的全部 RPC 接口。对每个 RPC 接口，Conflux Studio 也将生成对应的参数表格，填写数据后点击 *Execute* 按钮运行，即可完成调用并查看返回数据。

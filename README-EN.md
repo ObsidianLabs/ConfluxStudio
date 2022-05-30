@@ -137,3 +137,84 @@ In the *balance* table on the right, enter the *receiver* address just filled in
 <p align="center">
   <img src="./screenshots/mint.png" width="720px">
 </p>
+
+
+### Invoke smart contract
+
+After the contract is deployed, click the contract address in the Transaction Details popup and user will be redirected to Contract Inspector. Users may also click _Contract_ tab to switch to Contract Inspector and type in the address to open a contract. Conflux Studio's contract inspector allows users to open and debug multiple contracts at the same time.
+
+Contract Inspector is mainly divided into three parts:
+
+- Write methods on the left: Invoke write methods in the contract by selecting from the violet drop-down list;
+- Read data in the middle: Read data as predefined data types in the contract by selecting from the violet drop-down list;
+- Query event logs on the right: Query event logs as defined in the contract by selecting from the violet drop-down list.
+
+<p align="center">
+  <img src="./screenshots/contract.png" width="720px">
+</p>
+
+Conflux Studio automatically stores contract ABI after deployment and generates above lists of write methods, data retrieval, event query and their corresponding parameter forms. For more information on ABI, please refer to [ABI Storage](#abi-storage).
+
+Now, let's open the `GLDToken` contract we deployed moments ago to demo how to access the contract with Contract Inspector.
+
+First, select _transfer_ method from the drop-down list on the left column. _Transfer_ method moves a specified amount of tokens from one address to another. We need to populate the parameter form to complete the transaction:
+
+- Select `keypair02` from the drop-down list as the recipient (manual key-in address is also accepted) and type in 100 for amount as we wish to transfer 100 token in this example;
+- Leave all forms in the Gas section to Conflux Studio to estimate.
+- Select `keypair01` from the drop-down list in the Signer column. This also designates `keypair01` as the sender in this transaction.
+
+Then click _Execute_ (Play) button next to _transfer_ to push and execute the transaction. Moments later, Ethereum Network will prompt messages stating transaction status and fee information.
+
+<p align="center">
+  <img src="./screenshots/call_transfer_method.png" width="720px">
+</p>
+
+Let's proceed by verifying the outcome of last transaction. Select _balanceOf_ from the drop-down list of data types, then select `keypair02` from the drop-down list in the account column. And finally hit _Execute_ (Play) button to read the data. The result will be shown below, which in our example, is 100. This verifies that the above transfer transaction of 100 tokens to `keypair02` has been successfully carried out.
+
+<p align="center">
+  <img src="./screenshots/balanceof.png" width="720px">
+</p>
+
+Finally, we pick _Transfer_ from the drop-down list of contract events and click _Get event logs_ (Play) button to query all transfer-related events. Results are shown below in the Event Logs section. Conflux Studio supports a customized range for events query, but can only return maximum 10,000 queries when connecting to local nodes or testnets, and by default the most recent 10,000 records. Therefore, users should keep the custom range within the aforementioned number. When connecting to Ethereum mainnet, the maximum number of event log queries goes down to 1,000.
+
+<p align="center">
+  <img src="./screenshots/transfer_eventlog.png" width="720px">
+</p>
+
+#### ABI Storage
+
+When working with Code Inspector, Conflux Studio relies on contract ABI to generate lists of methods, data types and event types. ABI Storage at the bottom is the place where these ABIs are stored. Upon successful deployment of contract, Conflux Studio automatically stores contract ABI(s). Users may view the raw ABI data by moving the cursor onto the ABI record and click _Edit_ (pencil) icon, or click _Delete_ button to remove the ABI record.
+
+<p align="center">
+  <img src="./screenshots/abi.png" width="720px">
+</p>
+
+In case when users need to access other contracts (an online contract, for example), he/she needs to add the contract ABI to ABI Storage. Click _New_ button in the ABI Storage popup to start the process. For users' convenience, Conflux Studio also reads ABI from all compiled contracts in the current project. Click _Select from the current project_ and select to import ABI from the drop-down list.
+
+<p align="center">
+  <img src="./screenshots/new_abi.png" width="720px">
+</p>
+
+#### Transaction History
+
+Conflux Studio records every transaction pushed to the network. To view recent transactions, click _Transactions_ tab to pull up the list of transactions. Users may single click on a transaction to pull up Transaction Details popup and review information such as Basics, Parameters, Tx and Receipt.
+
+<p align="center">
+  <img src="./screenshots/transactions.png" width="720px">
+</p>
+
+### Network Button
+
+There is a network icon on the bottom bar, which shows the network status. The icon is dark when network disconnected and light when networ connected. Click the network button can toggle the connection status.
+
+<p align="center">
+  <img src="./screenshots/network_tools.png" width="720px">
+</p>
+
+#### RPC Client
+
+Conflux Studio also comes with an RPC client allowing users to interact with Ethereum nodes on the low level and examine the raw data. Click the network name tab at the bottom and select _RPC Client_ from the drop-down list to pull up RPC Client popup. RPC Clients supports all Ethereum RPC methods. Select from the drop-down list to start, and Conflux Studio will generate the corresponding parameter form automatically. Fill out necessary parameters and hit _Execute_ button to call the method and view the response in the Result section.
+
+<p align="center">
+  <img src="./screenshots/rpc_client.png" width="720px">
+</p>
