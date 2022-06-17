@@ -28,22 +28,22 @@ export default class App extends PureComponent{
       <div style={{
       fontSize: '2rem',
       padding: '1rem 2rem',
-      }}>Conflux Studio 出现了一些错误
+      }}>Conflux Studio encountered some errors
       </div>
       <div style={{
       fontSize: '1rem',
       padding: '0 2rem 1rem',
-      }}>你可以尝试同时按下 Ctrl 与 R 键（在 Windows 和 Linux 平台上），或同时按下 Command 与 R 键（在 Mac 平台上）来刷新页面重试。
+      }}>Press Ctrl + R ( Windows / Linux ) or Command + R ( macOS ) to refresh this page.
       </div>
       <div style={{
         fontSize: '1rem',
         padding: '0 2rem 1rem',
-        }}>如果错误反复出现，可以尝试在备份必要的数据（如密钥）之后，使用 Application 菜单中的 Clear All App Data 功能清除所有数据，然后重启本应用。
+        }}>If error persists, back up necessary data ( i.e. keypairs ), click Application - Clear All App Data and restart the application.
       </div>
       <div style={{
         fontSize: '1rem',
         padding: '0 2rem 1rem',
-        }}>你也可以将以下信息发送给我们，帮助我们解决此问题。
+        }}>Submit a Github Issue with below error logs to help us find the root cause.
       </div>
       <div style={{
         fontSize: '1rem',
