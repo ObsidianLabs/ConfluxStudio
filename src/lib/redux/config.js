@@ -38,6 +38,17 @@ export const uiState = {
   }
 }
 
+
+export const loadNetworkResources = {
+  default: false,
+  persist: false,
+  actions: {
+    LOAD_NETWORK_RESOURCES: {
+      reducer: (_, { payload }) => payload,
+    },
+  },
+};
+
 export const contracts = {
   default: Immutable.fromJS({
     dev: {
