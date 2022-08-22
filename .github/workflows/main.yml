@@ -116,7 +116,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ env.owner }}/${{ env.eth_components }}
-          ref: freeze-master-conflux
+          ref: master-freeze-conflux
           path: ./${{ env.eth_components }}
           token: ${{ secrets.obsidians_token }}
 
