@@ -22,10 +22,11 @@ NewProjectModal.defaultProps.FrameworkSelector = FrameworkSelector
 NewProjectModal.defaultProps.templates.splice(2, 0, 
   { id: 'sponsor', display: 'Sponsored Coin' },
 )
-NewProjectModal.defaultProps.templates[4].children.push(
+try{
+NewProjectModal.defaultProps.templates.splice(4, 0,
   { id: 'erc777', display: 'ERC777 Token (v4+)' }
 )
-
+}catch(e){}
 const UserHomepage = lazy(() => import('./UserHomepage' /* webpackChunkName: "tabs" */))
 const Project = lazy(() => import('./Project' /* webpackChunkName: "tabs" */))
 const Contract = lazy(() => import('./Contract' /* webpackChunkName: "tabs" */))
