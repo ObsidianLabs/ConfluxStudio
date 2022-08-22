@@ -1,7 +1,7 @@
 {
   "name": "conflux-studio",
   "description": "Graphic IDE for Conflux smart contract development",
-  "version": "0.18.10",
+  "version": "0.18.11",
   "author": {
     "name": "Phil Li",
     "email": "phil.li@obsidians.io",
@@ -115,8 +115,7 @@
       "not dead",
       "not op_mini all"
     ],
-    "development": [
-    ]
+    "development": []
   },
   "build": {
     "afterAllArtifactBuild": "./afterPackHook.js",
