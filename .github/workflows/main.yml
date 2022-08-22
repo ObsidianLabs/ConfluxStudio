@@ -15,14 +15,14 @@ env:
   project_project: conflux
   project_name: Conflux Studio
   project_build_script: yarn && yarn dist
-  os_matrix: '[\"macos-latest\", \"ubuntu-18.04\", \"windows-2019\"]'
+  os_matrix: '[\"macos-latest\", \"ubuntu-latest\", \"windows-2019\"]'
   enable_auth: false
   premium_editor: ../premium-editor
 
 jobs:
   # Generate matrix for the following steps
   generate-matrix:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Generate os matrix
@@ -39,7 +39,7 @@ jobs:
 
   # Extract version
   versions:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Get ${{ env.project_name }} version
@@ -57,7 +57,7 @@ jobs:
   bump:
     needs: versions
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Install Node.js, NPM and Yarn
