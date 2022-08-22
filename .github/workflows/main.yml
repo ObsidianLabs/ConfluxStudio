@@ -108,7 +108,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ env.owner }}/${{ env.share_components }}
-          ref: 1e293b6df16551e76d61670b3fbe09c233242772
+          ref: freeze-master-conflux
           path: ./${{ env.share_components }}
           token: ${{ secrets.obsidians_token }}
 
@@ -116,7 +116,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ env.owner }}/${{ env.eth_components }}
-          ref: fccb5c8d0fcafd3cffdfd0ab5affa5f07ef98965
+          ref: freeze-master-conflux
           path: ./${{ env.eth_components }}
           token: ${{ secrets.obsidians_token }}
 
